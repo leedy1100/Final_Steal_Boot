@@ -1,0 +1,84 @@
+#loginform {
+	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);	
+	width: 500px;
+    height: 400px;
+    text-align: center;
+    margin: auto;
+    z-index:2;
+}
+
+#loginform ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#loginform *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#loginform .login {
+    width: 100%;
+    height: 100px;
+}
+
+#loginform .login > h1 {
+    padding-top: 30px;
+}
+
+#loginform a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#loginform input {
+    padding: 7px 39px;
+    border: 1px solid #dfdfdf;
+}
+
+#loginform .input_box {
+    width: 100%;
+    height: 100px;
+}
+#loginform .input_box > div {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#loginform .input_box > div > input {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px !important;
+    
+}
+#loginform .login_box {
+    width: 100%;
+    height: 40px;
+}
+#loginform .login_box > div {
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+#loginform .login_box > div > input{
+    color:white;
+	background-color: black;
+	font-size:21px;
+}
+#loginform .sub {
+    width: 100%;
+    height: 100px;
+}
+#loginform .sub ul li {
+    display: inline-block;
+    padding: 8px;
+    padding-top: 20px;
+}
+#loginform .sub ul li > a {
+    font-size: 0.8rem;
+}
+#loginform .sub ul li > a:active {
+    color: green;
+}

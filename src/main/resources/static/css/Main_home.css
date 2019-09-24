@@ -1,0 +1,60 @@
+@charset "UTF-8";
+	body{
+		margin: 0;
+	}
+	#mainpage {
+		opacity:.6;
+		position : absolute;
+		top: 0px;
+		z-index:-1;
+	}
+	#background{
+		position : absolute;
+		opacity:.3;
+		background-image: url("../image/main/main_background.jpg");
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+	}
+	#conference{
+		position : absolute;
+		display : inline;
+		width: 15%;
+		height: 15%;
+		background-color: green;
+		border-radius: 0px 0px 1000px 0px;
+		text-align: left;
+	}
+	#conference>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
+	#decision{
+		position : absolute;
+		display : inline;
+		width: 15%;
+		height: 15%;
+		left: 85%;
+		background-color: purple;
+		border-radius: 0px 0px 0px 1000px;
+		text-align:right;
+	}
+	#decision>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
+	#calendar{
+		position : absolute;
+		display : inline;
+		width: 15%;
+		height: 15%;
+		top: 85%;
+		left: 42.5%;
+		background-color: blue;
+		border-radius: 1000px 1000px 0px 0px;
+		text-align:center;
+	}
+	#calendar>p{ font-size: 2.5vw; margin-block-start: 1.5em; margin-block-end: 0em; }
+	#myinfo{
+		position : absolute;
+		display : inline;
+		width: 15%;
+		height: 10%;
+		left: 44%;
+		top:5%;
+		display: none;
+	}
