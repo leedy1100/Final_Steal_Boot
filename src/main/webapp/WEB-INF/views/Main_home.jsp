@@ -6,8 +6,15 @@
 <% response.setContentType("text/html; charset=UTF-8"); %>
 
 <% 
-	MainDto userinfo = (MainDto)session.getAttribute("userinfo");
-	int logininfo = Integer.parseInt((String)session.getAttribute("logininfo"));
+	MainDto userinfo=null;
+	int logininfo = 0;
+	try{
+		userinfo = (MainDto)session.getAttribute("userinfo");
+		logininfo = Integer.parseInt((String)session.getAttribute("logininfo"));
+	} catch (Exception e){
+		System.out.println("userinfo or logininfo null point exception");
+	}
+	
 %>
 <!DOCTYPE html>
 <html>
