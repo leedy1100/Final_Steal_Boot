@@ -88,4 +88,32 @@ public class MainController_login {
 		
 	}
 	
+	@RequestMapping("myinfo.main")
+	public String myinfo(Model model, HttpSession session) {
+		
+		model.addAttribute("userinfo",session.getAttribute("userinfo"));
+		
+		return "Main_myinfo";
+		
+	}
+	
+	@RequestMapping(value = "infoupdate.main", method = RequestMethod.POST)
+	public String infoupdate(Model model, @ModelAttribute MainDto dto) {
+		
+		dto.setMain_security(0);
+		
+		int res = 0;
+		try {
+			res = biz.insert(dto);
+		} catch (Exception e) {
+			System.out.println("signup.main Error");
+		}
+		
+		model.addAttribute("res",res);
+		
+		return "redirect:./";
+		
+	}
+	
+	
 }

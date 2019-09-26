@@ -4,6 +4,7 @@ $(function(){
 	$("#mainpage").css({"width":width,"height":height});
 	$("#loginform").css("margin-top",height/2-200);
 	$("#signupform").css("margin-top",height/2-350);
+	$("#userpageform").css({"width":width,"height":height});
 });
 
 $(window).resize(function() {
@@ -12,4 +13,5 @@ $(window).resize(function() {
 	$("#mainpage").css({"width":width,"height":height});
 	$("#loginform").css("margin-top",height/2-200);
 	$("#signupform").css("margin-top",height/2-350);
+	$("#userpageform").css({"width":width,"height":height});
 });
