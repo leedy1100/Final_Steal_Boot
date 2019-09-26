@@ -22,13 +22,15 @@ public class FinalprojectApplication {
 	
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-        
+		
 		SqlSessionFactoryBean bean=new SqlSessionFactoryBean();
     
 		bean.setDataSource(dataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
         bean.setTypeAliasesPackage("com.steal.bs.model");
+        
 		return bean.getObject();
+		
 	}
 
 	@Bean

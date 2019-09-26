@@ -32,7 +32,7 @@
 		width: 15%;
 		height: 15%;
 		left: 85%;
-		background-color: purple;
+		background-color: aqua;
 		border-radius: 0px 0px 0px 1000px;
 		text-align:right;
 	}
@@ -44,7 +44,7 @@
 		height: 15%;
 		top: 85%;
 		left: 42.5%;
-		background-color: blue;
+		background-color: silver;
 		border-radius: 1000px 1000px 0px 0px;
 		text-align:center;
 	}
@@ -52,9 +52,13 @@
 	#myinfo{
 		position : absolute;
 		display : inline;
-		width: 15%;
 		height: 10%;
-		left: 44%;
+		left: 42%;
 		top:5%;
 		display: none;
+		z-index:2;
+	}
+	#userpageform{
+		position : absolute;
+		z-index:2;
 	}
