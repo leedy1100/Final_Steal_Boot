@@ -98,22 +98,90 @@ public class MainController_login {
 	}
 	
 	@RequestMapping(value = "infoupdate.main", method = RequestMethod.POST)
-	public String infoupdate(Model model, @ModelAttribute MainDto dto) {
-		
-		dto.setMain_security(0);
+	public String infoupdate(@ModelAttribute MainDto dto, HttpSession session) {
 		
 		int res = 0;
+		
 		try {
-			res = biz.insert(dto);
+			res = biz.update(dto);
 		} catch (Exception e) {
-			System.out.println("signup.main Error");
+			System.out.println("infoupdate.main Error");
+			session.setAttribute("logininfo", "3");
+			return "Main_myinfo";
 		}
 		
-		model.addAttribute("res",res);
+		if(res==0) {
+			session.setAttribute("logininfo", "3");
+			return "Main_myinfo";
+		} else {
+			session.removeAttribute("userinfo");
+			session.setAttribute("logininfo", "2");
+		}
 		
 		return "redirect:./";
 		
 	}
 	
+	@RequestMapping("updatepwchk.main")
+	@ResponseBody
+	public String updatepwchk(@RequestParam("seq") String seq) {
+		
+		String resurtpw = biz.updatepwchk(seq);
+		
+		return resurtpw;
+		
+	}
+	
+	@RequestMapping("infodelete.main")
+	public String delete(@RequestParam("seq") int seq, HttpSession session) {
+		
+		int res = 0;
+		
+		try {
+			res = biz.delete(seq);
+		} catch (Exception e) {
+			System.out.println("delete.main Error");
+			session.setAttribute("logininfo", "5");
+			return "Main_myinfo";
+		}
+		
+		if(res==0) {
+			session.setAttribute("logininfo", "5");
+			return "Main_myinfo";
+		} else {
+			session.removeAttribute("userinfo");
+			session.setAttribute("logininfo", "4");
+		}
+		
+		return "redirect:./";
+	}
+	
+	@RequestMapping("idsearch.main")
+	@ResponseBody
+	public String idsearch(@RequestParam("name") String name,@RequestParam("birth") int birth) {
+		
+		MainDto dto = new MainDto();
+		dto.setMain_name(name);
+		dto.setMain_birth(birth);
+		
+		String resurtid = biz.idsearch(dto);
+		
+		return resurtid;
+		
+	}
+	
+	@RequestMapping("pwsearch.main")
+	@ResponseBody
+	public String pwsearch(@RequestParam("name") String name,@RequestParam("email") String email) {
+		
+		MainDto dto = new MainDto();
+		dto.setMain_name(name);
+		dto.setMain_email(email);
+		
+		String resurtid = biz.pwsearch(dto);
+		
+		return resurtid;
+		
+	}
 	
 }

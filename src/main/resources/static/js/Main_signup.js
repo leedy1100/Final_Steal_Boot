@@ -100,8 +100,6 @@
 		} else if($("#main_birth").val()=="" || !$("#main_birth").val().length==6) {
 			alert("생년월일을 정확히 입력해 주세요. 주민번호 앞 6자리 입니다.")
 		} else {
-			alert("통과");
-			alert($("#submitsum"));
 			$("#submitsum").click();
 		}
 	}

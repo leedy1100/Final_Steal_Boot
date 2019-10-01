@@ -95,4 +95,45 @@ public class MainDaoImpl implements MainDao{
 		return resurtemp;
 	}
 
+	@Override
+	public String updatepwchk(String seq) {
+		String resurtpw =null;
+		try {
+			resurtpw = sqlSession.selectOne(namespace+"loginpwchk",seq);
+		} catch (Exception e) {
+			System.out.println("loginpwchk ERROR");
+			e.printStackTrace();
+		}
+		
+		return resurtpw;
+	}
+
+	@Override
+	public String idsearch(MainDto dto) {
+		
+		String resurtid =null;
+		try {
+			resurtid = sqlSession.selectOne(namespace+"idsearch",dto);
+		} catch (Exception e) {
+			System.out.println("idsearch ERROR");
+			e.printStackTrace();
+		}
+		
+		return resurtid;
+	}
+
+	@Override
+	public String pwsearch(MainDto dto) {
+		
+		String resurtipw =null;
+		try {
+			resurtipw = sqlSession.selectOne(namespace+"pwsearch",dto);
+		} catch (Exception e) {
+			System.out.println("ipwsearch ERROR");
+			e.printStackTrace();
+		}
+		
+		return resurtipw;
+	}
+
 }

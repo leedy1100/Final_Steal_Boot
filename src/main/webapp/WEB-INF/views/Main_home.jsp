@@ -26,94 +26,169 @@
 <link href="css/Main_login.css" rel="stylesheet" type="text/css">
 <link href="css/Main_home.css" rel="stylesheet" type="text/css">
 <link href="css/Main_signup.css" rel="stylesheet" type="text/css">
+<link href="css/Main_search.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/Main_home.js" ></script>
 <script type="text/javascript" src="js/Main_login.js" ></script>
 <script type="text/javascript" src="js/Main_signup.js" ></script>
+<script type="text/javascript" src="js/Main_search.js" ></script>
+
+<style type="text/css">
+
+
+
+#pwsearchform {
+	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);	
+	width: 500px;
+    height: 350px;
+    text-align: center;
+    margin: auto;
+    display: none;
+}
+
+#pwsearchform *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#pwsearchform .pwsearch {
+    width: 100%;
+    height: 100px;
+}
+
+#pwsearchform .pwsearch > h1 {
+    padding-top: 30px;
+}
+
+#pwsearchform a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#pwsearchform input {
+    padding: 7px 39px;
+    border: 1px solid #dfdfdf;
+}
+
+#pwsearchform .input_box {
+    width: 100%;
+    height: auto;
+}
+#pwsearchform .input_box > div {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#pwsearchform .input_box > div > input {
+    margin: 0 auto;
+    margin-bottom: 15px !important;
+    
+}
+#pwsearchform .pwsearch_box {
+    width: 100%;
+    height: 40px;
+}
+#pwsearchform .pwsearch_box > div {
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+#pwsearchform .pwsearch_box > div > input{
+    color:white;
+	background-color: black;
+	font-size:21px;
+}
+#verificationcode{
+	display: none;
+}
+#pwsearchchk{
+	display: none;
+}
+</style>
 
 <script type="text/javascript">
-	
-	function hoverevent(){
-		$("#conference").hover(
-				function conferenceonevent() {
-					$(this).animate({"opacity":".7"});
-				}, function conferenceoutevent() {
-					$(this).animate({"opacity":"1"});
-				}
-			);
-			$("#decision").hover(
-					function decisiononevent() {
-						$(this).animate({"opacity":".7"});
-					}, function decisioutevent() {
-						$(this).animate({"opacity":"1"});
-					}
-				);
-			$("#calendar").hover(
-					function calendaronevent() {
-						$(this).animate({"opacity":".7"});
-					}, function calendaroutevent() {
-						$(this).animate({"opacity":"1"});
-					}
-				);
-		return false;
-	}
-	$(function(){
-		hoverevent();
-	});
-	
-	function conference(){
-		$("#conference>p").css({"display":"inline","cursor":"default"});
-		$("#myinfo>br").remove();
-		$("#myinfo").css({"top":"0","margin":"auto","width":"auto","height":"auto"});
-		$("#myinfo").animate({"left":"20%"});
-		$("#conference").css({"z-index":"0","cursor":"default"});
-		$("#decision").css({"z-index":"1","cursor":"pointer"});
-		$("#calendar").css({"z-index":"1","cursor":"pointer"});
-		hoverevent();
-		$("#conference").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1"});
-		$("#conference").unbind();
-		$("#conference>p").fadeIn();
-		$("#decision>p").fadeOut();
-		$("#calendar>p").fadeOut();
-		$("#decision").animate({"width":"5%","height":"5%","left": "95%","border-bottom-left-radius":"1000px"});
-		$("#calendar").animate({"width":"5%","height":"5%","border-top-left-radius":"1000px","border-top-right-radius":"1000px","top": "95%","left": "47.5%"});
-	}
-	
-	function decision(){
-		$("#decision>p").css({"display":"inline","cursor":"default"});
-		$("#myinfo>br").remove();
-		$("#myinfo").css({"top":"0","margin":"auto","width":"auto","height":"auto"});
-		$("#myinfo").animate({"left":"20%"});
-		$("#conference").css({"z-index":"1","cursor":"pointer"});
-		$("#decision").css({"z-index":"0","cursor":"default"});
-		$("#calendar").css({"z-index":"1","cursor":"pointer"});
-		hoverevent();
-		$("#decision").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1","top": "0%","left": "0%"});
-		$("#decision").unbind();
-		$("#decision>p").fadeIn();
-		$("#conference>p").fadeOut();
-		$("#calendar>p").fadeOut();
-		$("#conference").animate({"width":"5%","height":"5%","border-bottom-right-radius":"1000px"});
-		$("#calendar").animate({"width":"5%","height":"5%","border-top-left-radius":"1000px","border-top-right-radius":"1000px","top": "95%","left": "47.5%"});
-	}
-	
-	function calendar(){
-		$("#calendar>p").css({"display":"inline","cursor":"default"});
-		$("#myinfo>br").remove();
-		$("#myinfo").css({"top":"0","margin":"auto","width":"auto","height":"auto"});
-		$("#myinfo").animate({"left":"6%"});
-		$("#conference").css({"z-index":"1","cursor":"pointer"});
-		$("#decision").css({"z-index":"1","cursor":"pointer"});
-		$("#calendar").css({"z-index":"0","cursor":"default"});
-		hoverevent();
-		$("#calendar").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1","top": "0%","left": "0%"});
-		$("#calendar").unbind();
-		$("#calendar>p").fadeIn();
-		$("#conference>p").fadeOut();
-		$("#decision>p").fadeOut();
-		$("#conference").animate({"width":"5%","height":"5%","border-bottom-right-radius":"1000px"});
-		$("#decision").animate({"width":"5%","height":"5%","left": "95%","border-bottom-left-radius":"1000px"});
-	}
 
+
+function pwsearch(){
+	$("#loginform").hide();
+	$("#pwsearchform").show();
+}
+
+function pwsearchbeck(){
+	$("#loginform").show();
+	$("#pwsearchform").hide();
+}
+
+function pwsearchchk1(){
+	$("#pwsearchchk1").val("진행중...");
+	$("#pwsearchchk1").attr('disabled', false);
+	name = $("#pwsearchname").val();
+	var email = $("#pwsearchemail").val();
+	name = name.trim();
+	
+	if(name==""){
+		alert("이름을 입력 해 주세요.");
+	} else if(email==""){
+		alert("email을 입력해 주세요.");
+	} else {
+		$.ajax({
+			url: "pwsearch.main",
+			type: "post",
+			data: {name:name,email:email},
+			success: function(data){
+				if(data==""){
+					alert("입력하신 정보가 존재하지 않습니다.")
+				} else {
+					EmailCheckgo(email);
+					password = data;
+				}
+			},
+			error: function(request, status, error){
+				alert("error 콘솔확인 요망");
+				console.log(request);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
+}
+
+function EmailCheckgo(emailchk) {
+	$.ajax({
+		type : "post",
+		url : "http://localhost:8787/bs/EmailCheck.main",
+        data:{email:emailchk},
+		datatype : "int",
+		success : function(data) {
+			alert(name+"님 반갑습니다.\n입력하신 이메일로 인증번호가 전송되었습니다.");
+			$("#pwsearchform").css("height","380px");
+			$("#verificationcode").show();
+			$("#pwsearchchk").show();
+			$("#pwsearchchk1").hide();
+			codenum=data;
+
+			$("#pwsearchchk1").val("인증번호 보내기");
+			$("#pwsearchchk1").attr('disabled', true);
+		}, error: function(request, status, error){
+			alert("error 콘솔확인 요망");
+			console.log(request);
+			console.log(status);
+			console.log(error);
+
+			$("#pwsearchchk1").val("인증번호 보내기");
+			$("#pwsearchchk1").attr('disabled', true);
+		}
+	});
+}
+
+function confrom(){
+	var code = $("#verificationcode").val();
+	if(codenum.indexOf(code)==0){
+		alert("인증되었습니다. 비밀번호는 : '"+password+"' 입니다.");
+	} else {
+		alert("문자가 다릅니다.");
+	}
+}
 </script>
 
 <% 
@@ -184,16 +259,16 @@
 			</form>
 			<div class="sub">
 				<ul>
-					<li><a href="#" onclick="window.open('useridsearch.jsp','searchid','width=456, height=510')">아이디 찾기</a></li>
-					<li><a href="#" onclick="window.open('userpasswordsearch.jsp','searchpassword','width=456, height=510')">비밀번호 찾기</a></li>
+					<li><a href="#" onclick="idsearch()">아이디 찾기</a></li>
+					<li><a href="#" onclick="pwsearch()">비밀번호 찾기</a></li>
 					<li><a href="#" onclick="signup()">회원가입</a></li>
 				</ul>
 			</div>
 		</div>
 			
 		<div id="signupform">
-			<form action="signup.main" method="post" id="test" >
-				<input type="hidden" name="command" value="signupres">
+			<form action="signup.main" method="post" >
+				<br/>
 				<h1>회원가입</h1>
 				<p>모두 입력해 주세요.</p>
 	
@@ -226,7 +301,7 @@
 				<input type="text" name="main_email" id="main_email" />
 				
 				<label>Birth<span class="small">생년월일</span></label>
-				<input type="text" name="main_birth" id="main_birth" placeholder="주민번호 앞 6자리"/>
+				<input type="number" name="main_birth" id="main_birth" placeholder="주민번호 앞 6자리"/>
 				
 				<label>EMP<span class="small">사워번호</span></label>
 				<input type="text" name="main_emp" id="main_emp"  />
@@ -239,6 +314,44 @@
 				<button class="ck1" type="button" onclick="login()">뒤로가기</button>
 			</form>
 		</div>
+
+		<div id="idsearchform">
+			<div class="idsearch">
+				<h1>아이디 찾기</h1>
+			</div>
+			<div class="input_box">
+				<div>
+					<input type="text" placeholder="이름" name="main_name" id="name" >
+					<input type="number"  placeholder="생년월일 6자리" name="main_birth" id="birth" >
+				</div>
+			</div>
+			<div class="idsearch_box" style="margin-bottom: 15px;">
+				<div>
+					<input type="button" class="ir" value="완료" onclick="idsearchchk()"><br/><br/>
+					<input type="button" class="ir" value="돌아가기" onclick="idsearchbeck()"><br/>
+				</div>
+			</div>
+		</div>
+		
+		<div id="pwsearchform">
+			<div class="pwsearch">
+				<h1>패스워드 찾기</h1>
+			</div>
+			<div class="input_box">
+				<div>
+					<input type="text" placeholder="이름" name="main_name" id="pwsearchname" >
+					<input type="text" placeholder="가입시 입력한 email 주소" name="main_email" id="pwsearchemail" >
+					<input type="text" placeholder="인증번호" id="verificationcode" >
+				</div>
+			</div>
+			<div class="pwsearch_box" style="margin-bottom: 15px;">
+				<div>
+					<input type="button" class="ir" value="인증번호 보내기" onclick="pwsearchchk1()" id="pwsearchchk1"  ><input type="button" class="ir" value="완료" onclick="confrom()" id="pwsearchchk"><br/><br/>
+					<input type="button" class="ir" value="돌아가기" onclick="pwsearchbeck()"><br/>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 
 </body>
@@ -254,6 +367,28 @@
 </script>
 <%
 		session.setAttribute("logininfo", "0");
-	} 
+	} else if(logininfo==2){
+%>
+<script type="text/javascript">
+	
+	$(function(){
+		alert("정보가 수정 되었습니다. 재 로그인 해주세요.")
+	});
+
+</script>		
+<%
+		session.setAttribute("logininfo", "0");
+	}  else if(logininfo==4){
+%>
+<script type="text/javascript">
+			
+	$(function(){
+		alert("회원 탈퇴 되셨습니다.")
+	});
+
+</script>		
+<%		
+		session.setAttribute("logininfo", "0");
+	}
 %>
 </html>

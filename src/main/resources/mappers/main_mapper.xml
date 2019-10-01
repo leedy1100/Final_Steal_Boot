@@ -14,6 +14,12 @@
 		WHERE MAIN_ID = #{id}
 	</select>
 	
+	<select id="loginpwchk" resultType="String" parameterType="String">
+		SELECT MAIN_PASSWORD
+		FROM MAIN
+		WHERE MAIN_SEQ = #{seq}
+	</select>
+	
 	<select id="signupempchk" resultType="String" parameterType="String">
 		SELECT EMP_NAME
 		FROM EMP
@@ -27,12 +33,25 @@
 
 	<update id="update" parameterType="mainDto">
 		UPDATE MAIN
-		SET MAIN_PASSWORD=#{password},MAIN_PHONENUMBE=#{phonenumber},MAIN_EMAIL=#{email}
-		WHERE MAIN_SEQ=#{seq}
+		SET MAIN_PASSWORD=#{main_password},MAIN_PHONENUMBER=#{main_phonenumber},MAIN_EMAIL=#{main_email}
+		WHERE MAIN_SEQ=#{main_seq}
 	</update>
 	
 	<delete id="delete" parameterType="int">
 		DELETE FROM MAIN WHERE MAIN_SEQ=#{seq}
 	</delete>
+	
+	<select id="idsearch" resultType="String" parameterType="mainDto">
+		SELECT MAIN_ID
+		FROM MAIN
+		WHERE MAIN_NAME = #{main_name} AND MAIN_BIRTH = #{main_birth}
+	</select>
+	
+	<select id="pwsearch" resultType="String" parameterType="mainDto">
+		SELECT MAIN_PASSWORD
+		FROM MAIN
+		WHERE MAIN_NAME = #{main_name} AND MAIN_EMAIL = #{main_email}
+	</select>
+	
 	
 </mapper>

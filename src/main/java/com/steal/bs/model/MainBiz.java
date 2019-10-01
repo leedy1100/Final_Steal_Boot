@@ -8,5 +8,8 @@ public interface MainBiz {
 	int delete(int seq);
 	String loginidchk(String id);
 	String signupempchk(String emp);
+	String updatepwchk(String seq);
+	String idsearch(MainDto dto);
+	String pwsearch(MainDto dto);
 	
 }

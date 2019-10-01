@@ -2,6 +2,7 @@ function signup(){
 	$("#loginform").hide();
 	$("#signupform").show();
 }
+
 function login(){	
 	$("#loginform").show();
 	$("#signupform").hide();
