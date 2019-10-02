@@ -11,12 +11,12 @@ public class MainDaoImpl implements MainDao{
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public MainDto selectOne(MainDto dto) {
+	public MainDto selectOne(String id) {
 
 		MainDto userdto = null;
 		
 		try {
-			userdto = sqlSession.selectOne(namespace+"selectOne",dto);
+			userdto = sqlSession.selectOne(namespace+"selectOne",id);
 		} catch (Exception e) {
 			System.out.println("SELECT ONE ERROR");
 			e.printStackTrace();

@@ -3,9 +3,9 @@
 <mapper namespace="main">
 
 	<select id="selectOne" resultType="mainDto" parameterType="mainDto">
-		SELECT MAIN_SEQ, MAIN_AUTHORITY, MAIN_NAME, MAIN_ID, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
+		SELECT MAIN_SEQ, MAIN_AUTHORITY, MAIN_NAME, MAIN_ID, MAIN_PASSWORD, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
 		FROM MAIN
-		WHERE MAIN_ID = #{main_id} AND MAIN_PASSWORD = #{main_password}
+		WHERE MAIN_ID = #{id}
 	</select>
 	
 	<select id="loginidchk" resultType="String" parameterType="String">

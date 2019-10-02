@@ -19,32 +19,32 @@ public class MainController_login {
 	
 	@Autowired
 	MainBiz biz;
-	
-	@RequestMapping(value = "login.main", method = RequestMethod.POST)
-	public String login(Model model, @ModelAttribute MainDto dto, HttpSession session) {
-		
-		MainDto userdto = null;
-		
-		try {
-			userdto = biz.selectOne(dto);
-		} catch (Exception e) {
-			System.out.println("login.main Error");
-		}
-		
-		if(userdto==null) {
-			session.setAttribute("logininfo", "1");
-			return "redirect:./";
-		} else {
-			session.setAttribute("userinfo", userdto);
-			
-			return "redirect:./";
-		}
-	}
-	
+//  로그인에는 필요없음	
+//	@RequestMapping(value = "login.main", method = RequestMethod.POST)
+//	public String login(Model model, @ModelAttribute MainDto dto, HttpSession session) {
+//		
+//		MainDto userdto = null;
+//		
+//		try {
+//			userdto = biz.selectOne(dto);
+//		} catch (Exception e) {
+//			System.out.println("login.main Error");
+//		}
+//		
+//		if(userdto==null) {
+//			session.setAttribute("logininfo", "1");
+//			return "redirect:./";
+//		} else {
+//			session.setAttribute("userinfo", userdto);
+//			
+//			return "redirect:./";
+//		}
+//	}
+//	
 	@RequestMapping(value = "signup.main", method = RequestMethod.POST)
 	public String signup(Model model, @ModelAttribute MainDto dto) {
 		
-		dto.setMain_authority(0);
+		dto.setMain_authority("ROLE_USER");
 		
 		int res = 0;
 		try {
@@ -59,19 +59,18 @@ public class MainController_login {
 		
 	}
 	
-	@RequestMapping(value = "logout.main", method = RequestMethod.GET)
-	public String logout(Model model, HttpSession session) {
-		
-		session.removeAttribute("userinfo");
-		
-		return "redirect:./";
-		
-	}
+//	@RequestMapping(value = "logout.main", method = RequestMethod.GET)
+//	public String logout(Model model, HttpSession session) {
+//		
+//		session.removeAttribute("userinfo");
+//		
+//		return "redirect:./";
+//		
+//	}
 	
 	@RequestMapping("loginidchk.main")
 	@ResponseBody
 	public String loginidchk(@RequestParam("id") String id) {
-		
 		String resurtid = biz.loginidchk(id);
 		
 		return resurtid;
@@ -182,6 +181,16 @@ public class MainController_login {
 		
 		return resurtid;
 		
+	}
+	
+	@RequestMapping("/user/userpage")
+	public String userPage() {
+		return "userpage";
+	}
+	
+	@RequestMapping("/accessDenied")
+	public String forBidden() {
+		return "accessDenied";
 	}
 	
 }

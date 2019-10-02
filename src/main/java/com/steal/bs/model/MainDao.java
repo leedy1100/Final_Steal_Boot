@@ -4,7 +4,7 @@ public interface MainDao {
 
 	String namespace= "main.";
 
-	MainDto selectOne(MainDto dto);
+	MainDto selectOne(String id);
 	int insert(MainDto dto);
 	int update(MainDto dto);
 	int delete(int seq);

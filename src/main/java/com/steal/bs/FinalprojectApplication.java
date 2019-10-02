@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.steal.bs.model.MainBiz;
 import com.steal.bs.model.MainBizImpl;
@@ -37,11 +39,10 @@ public class FinalprojectApplication {
 	public SqlSessionTemplate sqlSession(SqlSessionFactory factory) {
 		return new SqlSessionTemplate(factory);
 	}
-	
+
 	@Bean
-	public MainBiz biz() {
-		MainBiz biz = new MainBizImpl();
-		return biz;
-	}
+    public PasswordEncoder passwordEncoder() {
+    	return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 	
 }

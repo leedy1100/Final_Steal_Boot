@@ -2,7 +2,7 @@ package com.steal.bs.model;
 
 public interface MainBiz {
 	
-	MainDto selectOne(MainDto dto);
+	MainDto selectOne(String id);
 	int insert(MainDto dto);
 	int update(MainDto dto);
 	int delete(int seq);

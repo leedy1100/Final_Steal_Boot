@@ -1,21 +1,30 @@
 package com.steal.bs.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MainBizImpl implements MainBiz{
+public class MainBizImpl implements MainBiz, UserDetailsService {
 
 	@Autowired
 	private MainDao dao;
+	@Autowired 
+	PasswordEncoder passwordEncoder;
 	
 	@Override
-	public MainDto selectOne(MainDto dto) {
-		return dao.selectOne(dto);
+	public MainDto selectOne(String id){
+		return dao.selectOne(id);
 	}
 
 	@Override
 	public int insert(MainDto dto) {
+		
+		dto.setMain_password(passwordEncoder.encode(dto.getMain_password()));
+		
 		return dao.insert(dto);
 	}
 
@@ -64,6 +73,17 @@ public class MainBizImpl implements MainBiz{
 	@Override
 	public String pwsearch(MainDto dto) {
 		return dao.pwsearch(dto);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		MainDto dto = dao.selectOne(username);
+		if(dto == null) {
+			System.out.println("loadUserByUsername : not existed user");
+			throw new UsernameNotFoundException("아이디가 존재하지 않습니다.");
+		}
+		
+		return dto;
 	}
 
 }
