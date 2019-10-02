@@ -14,7 +14,6 @@
 	} catch (Exception e){
 		System.out.println("userinfo or logininfo null point exception");
 	}
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -35,160 +34,11 @@
 <style type="text/css">
 
 
-
-#pwsearchform {
-	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);	
-	width: 500px;
-    height: 350px;
-    text-align: center;
-    margin: auto;
-    display: none;
-}
-
-#pwsearchform *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-#pwsearchform .pwsearch {
-    width: 100%;
-    height: 100px;
-}
-
-#pwsearchform .pwsearch > h1 {
-    padding-top: 30px;
-}
-
-#pwsearchform a {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-#pwsearchform input {
-    padding: 7px 39px;
-    border: 1px solid #dfdfdf;
-}
-
-#pwsearchform .input_box {
-    width: 100%;
-    height: auto;
-}
-#pwsearchform .input_box > div {
-    width: 50%;
-    height: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-}
-#pwsearchform .input_box > div > input {
-    margin: 0 auto;
-    margin-bottom: 15px !important;
-    
-}
-#pwsearchform .pwsearch_box {
-    width: 100%;
-    height: 40px;
-}
-#pwsearchform .pwsearch_box > div {
-    box-sizing: border-box;
-    border-radius: 7px;
-}
-#pwsearchform .pwsearch_box > div > input{
-    color:white;
-	background-color: black;
-	font-size:21px;
-}
-#verificationcode{
-	display: none;
-}
-#pwsearchchk{
-	display: none;
-}
 </style>
 
 <script type="text/javascript">
 
 
-function pwsearch(){
-	$("#loginform").hide();
-	$("#pwsearchform").show();
-}
-
-function pwsearchbeck(){
-	$("#loginform").show();
-	$("#pwsearchform").hide();
-}
-
-function pwsearchchk1(){
-	$("#pwsearchchk1").val("진행중...");
-	$("#pwsearchchk1").attr('disabled', false);
-	name = $("#pwsearchname").val();
-	var email = $("#pwsearchemail").val();
-	name = name.trim();
-	
-	if(name==""){
-		alert("이름을 입력 해 주세요.");
-	} else if(email==""){
-		alert("email을 입력해 주세요.");
-	} else {
-		$.ajax({
-			url: "pwsearch.main",
-			type: "post",
-			data: {name:name,email:email},
-			success: function(data){
-				if(data==""){
-					alert("입력하신 정보가 존재하지 않습니다.")
-				} else {
-					EmailCheckgo(email);
-					password = data;
-				}
-			},
-			error: function(request, status, error){
-				alert("error 콘솔확인 요망");
-				console.log(request);
-				console.log(status);
-				console.log(error);
-			}
-		});
-	}
-}
-
-function EmailCheckgo(emailchk) {
-	$.ajax({
-		type : "post",
-		url : "http://localhost:8787/bs/EmailCheck.main",
-        data:{email:emailchk},
-		datatype : "int",
-		success : function(data) {
-			alert(name+"님 반갑습니다.\n입력하신 이메일로 인증번호가 전송되었습니다.");
-			$("#pwsearchform").css("height","380px");
-			$("#verificationcode").show();
-			$("#pwsearchchk").show();
-			$("#pwsearchchk1").hide();
-			codenum=data;
-
-			$("#pwsearchchk1").val("인증번호 보내기");
-			$("#pwsearchchk1").attr('disabled', true);
-		}, error: function(request, status, error){
-			alert("error 콘솔확인 요망");
-			console.log(request);
-			console.log(status);
-			console.log(error);
-
-			$("#pwsearchchk1").val("인증번호 보내기");
-			$("#pwsearchchk1").attr('disabled', true);
-		}
-	});
-}
-
-function confrom(){
-	var code = $("#verificationcode").val();
-	if(codenum.indexOf(code)==0){
-		alert("인증되었습니다. 비밀번호는 : '"+password+"' 입니다.");
-	} else {
-		alert("문자가 다릅니다.");
-	}
-}
 </script>
 
 <% 
@@ -215,6 +65,12 @@ function confrom(){
 		
 		<div id="conference" onclick="conference()" style="cursor:pointer">
 			<p style="cursor:pointer">화상회의</p>
+			<div id="conferenceform">
+				<a href="chathome.chat">채팅방 가기</a>
+			
+			
+			
+			</div>
 		</div>
 		
 		<div id="myinfo">

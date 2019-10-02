@@ -21,7 +21,7 @@ public class MainController_login {
 	MainBiz biz;
 	
 	@RequestMapping(value = "login.main", method = RequestMethod.POST)
-	public String login(Model model, @ModelAttribute MainDto dto,HttpSession session) {
+	public String login(Model model, @ModelAttribute MainDto dto, HttpSession session) {
 		
 		MainDto userdto = null;
 		
@@ -44,7 +44,7 @@ public class MainController_login {
 	@RequestMapping(value = "signup.main", method = RequestMethod.POST)
 	public String signup(Model model, @ModelAttribute MainDto dto) {
 		
-		dto.setMain_security(0);
+		dto.setMain_authority(0);
 		
 		int res = 0;
 		try {

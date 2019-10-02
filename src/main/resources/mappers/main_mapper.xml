@@ -3,7 +3,7 @@
 <mapper namespace="main">
 
 	<select id="selectOne" resultType="mainDto" parameterType="mainDto">
-		SELECT MAIN_SEQ, MAIN_SECURITY, MAIN_NAME, MAIN_ID, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
+		SELECT MAIN_SEQ, MAIN_AUTHORITY, MAIN_NAME, MAIN_ID, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
 		FROM MAIN
 		WHERE MAIN_ID = #{main_id} AND MAIN_PASSWORD = #{main_password}
 	</select>
@@ -28,7 +28,7 @@
 	
 	<insert id="insert" parameterType="mainDto">
 		INSERT INTO MAIN VALUES
-		(MAINSEQ.NEXTVAL,#{main_security},#{main_name},#{main_id},#{main_password},#{main_sex},#{main_phonenumber},#{main_email},#{main_birth},#{main_emp})
+		(MAINSEQ.NEXTVAL,#{main_authority},#{main_name},#{main_id},#{main_password},#{main_sex},#{main_phonenumber},#{main_email},#{main_birth},#{main_emp})
 	</insert>
 
 	<update id="update" parameterType="mainDto">

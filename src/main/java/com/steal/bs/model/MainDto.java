@@ -3,7 +3,7 @@ package com.steal.bs.model;
 public class MainDto {
 	
 	private int main_seq;
-	private double main_security;
+	private double main_authority;
 	private String main_name;
 	private String main_id;
 	private String main_password;
@@ -15,10 +15,10 @@ public class MainDto {
 	
 	public MainDto() {}
 	
-	public MainDto(int main_seq, double main_security, String main_name, String main_id, String main_password,
+	public MainDto(int main_seq, double main_authority, String main_name, String main_id, String main_password,
 			char main_sex, String main_phonenumber, String main_email, int main_birth, int main_emp) {
 		this.main_seq = main_seq;
-		this.main_security = main_security;
+		this.main_authority = main_authority;
 		this.main_name = main_name;
 		this.main_id = main_id;
 		this.main_password = main_password;
@@ -37,12 +37,12 @@ public class MainDto {
 		this.main_seq = main_seq;
 	}
 
-	public double getMain_security() {
-		return main_security;
+	public double getMain_authority() {
+		return main_authority;
 	}
 
-	public void setMain_security(double main_security) {
-		this.main_security = main_security;
+	public void setMain_authority(double main_authority) {
+		this.main_authority = main_authority;
 	}
 
 	public String getMain_name() {
@@ -111,7 +111,7 @@ public class MainDto {
 
 	@Override
 	public String toString() {
-		return "MainDto [main_seq=" + main_seq + ", main_security=" + main_security + ", main_name=" + main_name
+		return "MainDto [main_seq=" + main_seq + ", main_authority=" + main_authority + ", main_name=" + main_name
 				+ ", main_id=" + main_id + ", main_password=" + main_password + ", main_sex=" + main_sex
 				+ ", main_phonenumber=" + main_phonenumber + ", main_email=" + main_email + ", main_birth=" + main_birth
 				+ ", main_emp=" + main_emp + "]";
