@@ -8,7 +8,7 @@
 <% 
 	int logininfo = 0;
 	try{
-		logininfo = Integer.parseInt((String)request.getAttribute("logininfo"));
+		logininfo = Integer.parseInt((String)session.getAttribute("logininfo"));
 	} catch (Exception e){
 		System.out.println("logininfo null point exception");
 	}
@@ -30,7 +30,6 @@
 
 	<div id="myinfoform">
 		<form action="infoupdate.main" method="post" >
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" name="main_seq" id="main_seq" value="${userinfo.main_seq}">
 			<br/>
 			<h1>내 정보</h1>
@@ -49,7 +48,7 @@
 			<input type="password" name="password1" id="password1" />
 			<input type="button" onclick="pwchk()" id="chk1" class="chk" value="PW유효성검사" />
 <%
-	MainDto dto = (MainDto)request.getAttribute("userinfo");
+	MainDto dto = (MainDto)session.getAttribute("userinfo");
 	char sex = dto.getMain_sex();
 	switch(sex){
 		case 'M':

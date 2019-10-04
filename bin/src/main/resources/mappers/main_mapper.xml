@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="main">
+
+	<select id="selectOne" resultType="mainDto" parameterType="mainDto">
+		SELECT MAIN_SEQ, MAIN_AUTHORITY, MAIN_NAME, MAIN_ID, MAIN_PASSWORD, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
+		FROM MAIN
+		WHERE MAIN_ID = #{id}
+	</select>
+	
+	<select id="loginidchk" resultType="String" parameterType="String">
+		SELECT MAIN_ID
+		FROM MAIN
+		WHERE MAIN_ID = #{id}
+	</select>
+	
+	<select id="loginpwchk" resultType="String" parameterType="String">
+		SELECT MAIN_PASSWORD
+		FROM MAIN
+		WHERE MAIN_SEQ = #{seq}
+	</select>
+	
+	<select id="signupempchk" resultType="String" parameterType="String">
+		SELECT EMP_NAME
+		FROM EMP
+		WHERE EMP_NO = #{emp}
+	</select>
+	
+	<insert id="insert" parameterType="mainDto">
+		INSERT INTO MAIN VALUES
+		(MAINSEQ.NEXTVAL,#{main_authority},#{main_name},#{main_id},#{main_password},#{main_sex},#{main_phonenumber},#{main_email},#{main_birth},#{main_emp})
+	</insert>
+
+	<update id="update" parameterType="mainDto">
+		UPDATE MAIN
+		SET MAIN_PASSWORD=#{main_password},MAIN_PHONENUMBER=#{main_phonenumber},MAIN_EMAIL=#{main_email}
+		WHERE MAIN_SEQ=#{main_seq}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM MAIN WHERE MAIN_SEQ=#{seq}
+	</delete>
+	
+	<select id="idsearch" resultType="String" parameterType="mainDto">
+		SELECT MAIN_ID
+		FROM MAIN
+		WHERE MAIN_NAME = #{main_name} AND MAIN_BIRTH = #{main_birth}
+	</select>
+	
+	<select id="pwsearch" resultType="String" parameterType="mainDto">
+		SELECT MAIN_PASSWORD
+		FROM MAIN
+		WHERE MAIN_NAME = #{main_name} AND MAIN_EMAIL = #{main_email}
+	</select>
+	
+	
+</mapper>

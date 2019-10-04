@@ -42,8 +42,6 @@
     if(principal != null) {
         name = auth.getName();
         System.out.println(principal);
-    }
-    if(!principal.equals(user)){
 %>	
 	<script type="text/javascript">
 		
@@ -77,8 +75,8 @@
 		<div id="myinfo">
 			<sec:authorize access="isAuthenticated()">
 			 
-			 <b><%=name %>님 환영합니다-</b><br/><a href="myinfo.main?id=<%=name %>">내정보 보기</a>
-			 <a href="user/userpage">유저페이지</a>
+			 <b>-<%=name %>님 환영합니다-</b><br/>-<a href="myinfo.main">내정보 보기</a>-
+			-
 			<form action="logout.main" method="post">
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}" /> <input type="submit" value="logout">

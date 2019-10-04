@@ -88,9 +88,11 @@ public class MainController_login {
 	}
 	
 	@RequestMapping("myinfo.main")
-	public String myinfo(Model model, HttpSession session) {
+	public String myinfo(Model model, HttpSession session, String id) {
 		
-		model.addAttribute("userinfo",session.getAttribute("userinfo"));
+		MainDto userdto = biz.selectOne(id);
+		
+		model.addAttribute("userinfo",userdto);
 		
 		return "Main_myinfo";
 		

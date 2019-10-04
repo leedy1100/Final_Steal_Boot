@@ -40,7 +40,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 	.loginProcessingUrl("/login.main")
                 	.usernameParameter("main_id")
                 	.passwordParameter("main_password")
-                	.defaultSuccessUrl("/user/userpage")
+                	.defaultSuccessUrl("/")
                 	.permitAll()
                 	.and()
                 .logout()

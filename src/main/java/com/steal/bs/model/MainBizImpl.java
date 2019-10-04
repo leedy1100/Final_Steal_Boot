@@ -30,6 +30,8 @@ public class MainBizImpl implements MainBiz, UserDetailsService {
 
 	@Override
 	public int update(MainDto dto) {
+		
+		dto.setMain_password(passwordEncoder.encode(dto.getMain_password()));
 		char sex = dto.getMain_sex();
 		switch(sex){
 			case '남':
