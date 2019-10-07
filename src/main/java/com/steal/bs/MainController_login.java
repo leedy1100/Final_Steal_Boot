@@ -154,7 +154,9 @@ public class MainController_login {
 			session.setAttribute("logininfo", "4");
 		}
 		
-		return "redirect:./logout.main";
+		session.invalidate();
+		
+		return "redirect:./";
 	}
 	
 	@RequestMapping("idsearch.main")
@@ -175,13 +177,14 @@ public class MainController_login {
 	@ResponseBody
 	public String pwsearch(@RequestParam("name") String name,@RequestParam("email") String email) {
 		
+		String id = "";
 		MainDto dto = new MainDto();
 		dto.setMain_name(name);
 		dto.setMain_email(email);
 		
-		String resurtid = biz.pwsearch(dto);
+		id = biz.pwsearch(dto);
 		
-		return resurtid;
+		return id;
 		
 	}
 	
@@ -193,6 +196,17 @@ public class MainController_login {
 	@RequestMapping("/accessDenied")
 	public String forBidden() {
 		return "accessDenied";
+	}
+	
+	@RequestMapping("pwchange.main")
+	public String pwchange(Model model, @RequestParam("id") String id) {
+		
+		MainDto userdto = biz.selectOne(id);
+
+		model.addAttribute("userinfo",userdto);
+		
+		return "pwchangeform";
+		
 	}
 	
 }

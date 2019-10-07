@@ -115,7 +115,8 @@ function EmailCheckgo(emailchk) {
 
 function confrom(){
 	var code = $("#verificationcode").val();
-	if(codenum.indexOf(code)==0){
+	if(codenum==code){
+		location.href='pwchange.main?id='+password;
 		alert("인증되었습니다. 비밀번호는 : '"+password+"' 입니다.");
 	} else {
 		alert("문자가 다릅니다.");

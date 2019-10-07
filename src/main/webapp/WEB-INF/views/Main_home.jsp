@@ -41,6 +41,7 @@
     String user = "anonymousUser";
     if(principal != null) {
         name = auth.getName();
+        System.out.println(principal);
     }
     if(!principal.equals(user)){
 %>	

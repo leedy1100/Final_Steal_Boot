@@ -22,7 +22,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	{
 		web.ignoring().antMatchers("/favicon.ico", "/css/**", "/image/**", "/js/**","/resource/**",
 				"/insert","/signup.main","/loginidchk.main","/signupempchk.main",
-				"/idsearch.main","pwsearch.main");
+				"/idsearch.main","/pwsearch.main","/EmailCheck.main");
 	}
 	
     @Override

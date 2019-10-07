@@ -48,7 +48,7 @@
 	</select>
 	
 	<select id="pwsearch" resultType="String" parameterType="mainDto">
-		SELECT MAIN_PASSWORD
+		SELECT MAIN_ID
 		FROM MAIN
 		WHERE MAIN_NAME = #{main_name} AND MAIN_EMAIL = #{main_email}
 	</select>

@@ -125,15 +125,15 @@ public class MainDaoImpl implements MainDao{
 	@Override
 	public String pwsearch(MainDto dto) {
 		
-		String resurtipw =null;
+		String resurtid =null;
 		try {
-			resurtipw = sqlSession.selectOne(namespace+"pwsearch",dto);
+			resurtid = sqlSession.selectOne(namespace+"pwsearch",dto);
 		} catch (Exception e) {
 			System.out.println("ipwsearch ERROR");
 			e.printStackTrace();
 		}
 		
-		return resurtipw;
+		return resurtid;
 	}
 
 }
