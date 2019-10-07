@@ -154,7 +154,7 @@ public class MainController_login {
 			session.setAttribute("logininfo", "4");
 		}
 		
-		return "redirect:./";
+		return "redirect:./logout.main";
 	}
 	
 	@RequestMapping("idsearch.main")
