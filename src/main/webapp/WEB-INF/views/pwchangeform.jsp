@@ -29,7 +29,8 @@
 			<label>Password<span class="small">패스워드 확인</span></label>
 			<input type="password" name="password1" id="password1" />
 			<input type="button" onclick="pwchk()" id="chk1" class="chk" value="PW유효성검사" />
-			<input type="submit" id="submitsum" />
+			<input class="ck1" type="button" id="submit" onclick="update()" value="확인" >
+			<input type="submit" id="submitsum"/>
 			<br/>
 			<button class="ck1" type="button" onclick="back()">뒤로가기</button>
 		</form>
