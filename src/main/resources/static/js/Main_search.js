@@ -72,7 +72,7 @@ function pwsearchchk1(){
 					alert("입력하신 정보가 존재하지 않습니다.")
 				} else {
 					EmailCheckgo(email);
-					password = data;
+					id = data;
 				}
 			},
 			error: function(request, status, error){
@@ -116,8 +116,8 @@ function EmailCheckgo(emailchk) {
 function confrom(){
 	var code = $("#verificationcode").val();
 	if(codenum==code){
-		location.href='pwchange.main?id='+password;
-		alert("인증되었습니다. 비밀번호는 : '"+password+"' 입니다.");
+		location.href='pwchange.main?id='+id;
+		alert("인증되었습니다. 아이디 : '"+id+"' 입니다.");
 	} else {
 		alert("문자가 다릅니다.");
 	}

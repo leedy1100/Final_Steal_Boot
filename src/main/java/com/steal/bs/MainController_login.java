@@ -199,7 +199,7 @@ public class MainController_login {
 	}
 	
 	@RequestMapping("pwchange.main")
-	public String pwchange(Model model, @RequestParam("id") String id) {
+	public String pwChange(Model model, @RequestParam("id") String id) {
 		
 		MainDto userdto = biz.selectOne(id);
 
