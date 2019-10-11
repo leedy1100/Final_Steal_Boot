@@ -77,9 +77,9 @@
 		<div id="myinfo">
 			<sec:authorize access="isAuthenticated()">
 			 
-			 <b><%=name %>님 환영합니다-</b><br/><a href="myinfo.main?id=<%=name %>">내정보 보기</a>
+			 <b><%=name %>님 환영합니다</b><br/><a href="myinfo.main?id=<%=name %>">내정보 보기</a>
 			 <a href="user/userpage">유저페이지</a>
-			<a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a>
+			<a href="" onclick="document.getElementById('logout-form').submit();">로그아웃</a>
 				<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
 				   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
 				</form>
