@@ -27,7 +27,7 @@
 
 		<b>-<%=name%>님 환영합니다-</b>
 		<br /><a href="../myinfo.main?id=<%=name%>">내정보 보기</a>
-			<form action="logout.main" method="post">
+			<form action="../logout.main" method="post">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> <input type="submit" value="logout">
 		</form>

@@ -87,7 +87,7 @@
 		emp = String.valueOf(empchk);
 	}
 %>
-			<label>EMP<span class="small">사워번호</span></label>
+			<label>EMP<span class="small">사원번호</span></label>
 			<input type="text" name="main_emp" id="main_emp" style="background-color:rgb(232,240,254)" readonly="readonly" value="<%=emp%>" />
 			
 			<input class="ck1" type="button" id="submit" onclick="update()" value="정보 수정" >

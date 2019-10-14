@@ -21,7 +21,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception
 	{
 		web.ignoring().antMatchers("/favicon.ico", "/css/**", "/image/**", "/js/**","/resource/**",
-				"/insert","/signup.main","/loginidchk.main","/signupempchk.main",
+				"/insert","/insertres","/signup.main","/loginidchk.main","/signupempchk.main",
 				"/idsearch.main","/pwsearch.main","/EmailCheck.main","/pwchange.main","/infoupdate.main");
 	}
 	
@@ -30,7 +30,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     	//http.csrf().disable();
     	http.exceptionHandling().accessDeniedPage("/accessDenied");
         http.authorizeRequests()
-        .antMatchers("/","/insert","/insertres").permitAll()
+        .antMatchers("/").permitAll()
         			.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
                 	.antMatchers("/admin/**").hasRole("ADMIN")
                 	.anyRequest().authenticated()

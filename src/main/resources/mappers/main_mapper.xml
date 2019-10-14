@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="main">
 
+	<select id="selectList" resultType="mainDto">
+		SELECT MAIN_SEQ, MAIN_AUTHORITY, MAIN_NAME, MAIN_ID, MAIN_PASSWORD, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
+		FROM MAIN
+		ORDER BY MAIN_EMP
+	</select>
+
 	<select id="selectOne" resultType="mainDto" parameterType="mainDto">
 		SELECT MAIN_SEQ, MAIN_AUTHORITY, MAIN_NAME, MAIN_ID, MAIN_PASSWORD, MAIN_SEX, MAIN_PHONENUMBER, MAIN_EMAIL, MAIN_BIRTH, MAIN_EMP
 		FROM MAIN
@@ -53,5 +59,26 @@
 		WHERE MAIN_NAME = #{main_name} AND MAIN_EMAIL = #{main_email}
 	</select>
 	
+	<update id="empUpdate" parameterType="mainDto">
+		UPDATE MAIN
+		SET MAIN_EMP=#{main_emp}
+		WHERE MAIN_SEQ=#{main_seq}
+	</update>
+	
+	<select id="empList" resultType="empDto">
+		SELECT EMP_NO, EMP_NAME
+		FROM EMP
+		ORDER BY EMP_NO
+	</select>
+	
+	<insert id="empInsert" parameterType="empDto">
+		INSERT INTO EMP
+		VALUES(#{emp_no},#{emp_name})
+	</insert>
+	
+	<delete id="empDelete" parameterType="int">
+		DELETE FROM EMP
+		WHERE EMP_NO = #{emp_no}
+	</delete>
 	
 </mapper>

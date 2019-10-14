@@ -1,5 +1,7 @@
 package com.steal.bs.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,6 +16,11 @@ public class MainBizImpl implements MainBiz, UserDetailsService {
 	private MainDao dao;
 	@Autowired 
 	PasswordEncoder passwordEncoder;
+	
+	@Override
+	public List<MainDto> selectList() {
+		return dao.selectList();
+	}
 	
 	@Override
 	public MainDto selectOne(String id){
@@ -78,6 +85,11 @@ public class MainBizImpl implements MainBiz, UserDetailsService {
 	}
 
 	@Override
+	public int empUpdate(MainDto dto) {
+		return dao.empUpdate(dto);
+	}
+	
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		MainDto dto = dao.selectOne(username);
 		if(dto == null) {
@@ -87,5 +99,21 @@ public class MainBizImpl implements MainBiz, UserDetailsService {
 		
 		return dto;
 	}
+
+	@Override
+	public List<EmpDto> empList() {
+		return dao.empList();
+	}
+
+	@Override
+	public int empInsert(EmpDto dto) {
+		return dao.empInsert(dto);
+	}
+
+	@Override
+	public int empDelete(int emp_no) {
+		return dao.empDelete(emp_no);
+	}
+
 
 }
