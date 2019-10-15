@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 
 @Configuration
@@ -18,11 +17,10 @@ public class Security extends WebSecurityConfigurerAdapter {
 	AuthenticationProvider authenticationProvider;
     
 	@Override
-	public void configure(WebSecurity web) throws Exception
-	{
-		web.ignoring().antMatchers("/favicon.ico", "/css/**", "/image/**", "/js/**","/resource/**",
-				"/insert","/insertres","/signup.main","/loginidchk.main","/signupempchk.main",
-				"/idsearch.main","/pwsearch.main","/EmailCheck.main","/pwchange.main","/infoupdate.main");
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/favicon.ico", "/css/**", "/image/**", "/js/**", "/resource/**", "/signup.main",
+				"/loginidchk.main", "/signupempchk.main", "/idsearch.main", "/pwsearch.main", "/EmailCheck.main",
+				"/pwchange.main", "/infoupdate.main");
 	}
 	
     @Override

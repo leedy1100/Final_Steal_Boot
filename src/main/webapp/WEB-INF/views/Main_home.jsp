@@ -26,7 +26,32 @@
 <script type="text/javascript" src="js/Main_search.js" ></script>
 
 <style type="text/css">
-
+.mycontent {
+    text-align: right;
+    position: absolute;
+    width: 500px;
+    margin-top: -31px;
+    margin-left: 180px;
+}
+.mycontent li{
+	list-style: none;
+	display: inline-block;
+	font-weight: 700;
+	border-left: 2px solid black;
+	padding-left: 8px;	
+	line-height: 85%;
+}
+.mycontent li:first-child{
+	border: none;
+}
+.mycontent li a{
+	text-decoration: none;
+	color: black;
+}
+.mycontent li :hover{
+	color: black;
+	font-weight: 1000;
+}
 
 </style>
 
@@ -41,7 +66,6 @@
     String user = "anonymousUser";
     if(principal != null) {
         name = auth.getName();
-        System.out.println(principal);
     }
     if(!principal.equals(user)){
 %>	
@@ -75,16 +99,16 @@
 		</div>
 		
 		<div id="myinfo">
-			<sec:authorize access="isAuthenticated()">
-			 <b><%=name %>님 환영합니다</b><br/><a href="myinfo.main?id=<%=name %>">내정보 보기</a>
-			 <a href="user/userpage">유저페이지</a>
-			<a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a>
-				<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
-				   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
-				</form>
-			<a href="admin/employeelist">사원목록</a>
-			</sec:authorize>
-			 
+		<sec:authorize access="isAuthenticated()">
+		<ul class="mycontent">
+			<li><%=name %>님 <a href="../myinfo.main?id=<%=name %>">개인정보</a></li>
+			<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
+			<li><a href="admin/employeelist">사원목록</a></li>
+		</ul>
+			<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
+			   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+			</form>
+		</sec:authorize>
 		</div>
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">

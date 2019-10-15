@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -52,13 +51,11 @@ public class MainController_Admin {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원 번호가 수정되었습니다.'); location.href='/admin/selectone?id=';"+dto.getMain_id()+"</script>");
-			out.flush();
 		} else {
 			System.out.println("empupdate error");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원번호를 확인해주세요.'); history.go(-1);</script>");
-			out.flush();
 		}
 		model.addAttribute("list", biz.selectList());
 
@@ -78,13 +75,11 @@ public class MainController_Admin {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원정보가 삭제되었습니다.');</script>");
-			out.flush();
 		} else {
 			System.out.println("empdelete error");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원정보 삭제에 실패했습니다.'); history.go(-1);</script>");
-			out.flush();
 		}
 
 		model.addAttribute("list", biz.selectList());
@@ -105,13 +100,11 @@ public class MainController_Admin {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원 등록이 되었습니다.'); location.href='/admin/empList';</script>");
-			out.flush();
 		} else {
 			System.out.println("empdelete error");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원 등록에 실패했습니다.'); history.go(-1);</script>");
-			out.flush();
 		}
 
 		model.addAttribute("list", biz.empList());
@@ -140,13 +133,11 @@ public class MainController_Admin {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원정보가 삭제되었습니다.'); location.href='/admin/empList';</script>");
-			out.flush();
 		} else {
 			System.out.println("empdelete error");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('사원정보 삭제에 실패했습니다.'); history.go(-1);</script>");
-			out.flush();
 		}
 
 		model.addAttribute("list", biz.empList());

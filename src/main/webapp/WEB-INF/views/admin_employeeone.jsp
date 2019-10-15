@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix ="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="org.springframework.security.core.Authentication" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>    
 <!DOCTYPE html>
@@ -9,9 +12,56 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+<link href="../css/Main_myinfo.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+.mycontent {
+    text-align: right;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+.mycontent li{
+	list-style: none;
+	display: inline-block;
+	font-weight: 700;
+	border-left: 2px solid white;
+	padding-left: 8px;	
+	line-height: 85%;
+}
+.mycontent li:first-child{
+	border: none;
+}
+.mycontent li a{
+	text-decoration: none;
+	color: white;
+}
+.mycontent li :hover{
+	color: white;
+	font-weight: 1000;
+}
+</style>
 </head>
 <body>
-
+<%
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    Object principal = auth.getPrincipal();
+    String name = "";
+    String user = "anonymousUser";
+    if(principal != null) {
+        name = auth.getName();
+    }
+%>
+	<sec:authorize access="isAuthenticated()">
+		<ul class="mycontent">
+			<li> <a href="../myinfo.main?id=<%=name %>"><%=name %>님 개인정보</a></li>
+			<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
+			<li><a href="employeelist">사원목록</a></li>
+		</ul>
+			<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
+			   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+			</form>
+		</sec:authorize>
 	<div id="myinfoform">
 		<form action="empUpdate" method="post" >
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
