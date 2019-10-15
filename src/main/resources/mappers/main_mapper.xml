@@ -81,4 +81,9 @@
 		WHERE EMP_NO = #{emp_no}
 	</delete>
 	
+	<update id="empNameUpdate" parameterType="map">
+		UPDATE EMP
+		SET EMP_NAME = #{name}
+		WHERE EMP_NO = #{emp_no}
+	</update>
 </mapper>

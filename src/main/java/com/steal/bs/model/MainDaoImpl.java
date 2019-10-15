@@ -1,7 +1,9 @@
 package com.steal.bs.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -208,6 +210,25 @@ public class MainDaoImpl implements MainDao {
 			e.printStackTrace();
 		}
 
+		return res;
+	}
+
+	@Override
+	public int empNameUpdate(String name, String emp_no) {
+		
+		int res = 0;
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("name", name);
+		map.put("emp_no", emp_no);
+		
+		
+		try {
+			res = sqlSession.update(namespace+"empNameUpdate", map);
+		} catch (Exception e) {
+			System.out.println("empNameUpdate error");
+			e.printStackTrace();
+		}
 		return res;
 	}
 

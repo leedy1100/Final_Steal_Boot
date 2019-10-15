@@ -115,5 +115,10 @@ public class MainBizImpl implements MainBiz, UserDetailsService {
 		return dao.empDelete(emp_no);
 	}
 
+	@Override
+	public int empNameUpdate(String name, String emp_no) {
+		return dao.empNameUpdate(name, emp_no);
+	}
+
 
 }

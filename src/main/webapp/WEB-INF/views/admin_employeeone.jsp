@@ -87,7 +87,7 @@
 			<label>EMP<span class="small">사원번호</span></label>
 			<input type="text" name="main_emp" id="main_emp" value="${employee.main_emp }" />
 			
-			<input type="submit" id="submitsum"  value="정보 수정"/>
+			<input class="ck1" type="submit" value="정보 수정"/>
 			<br/>
 			<br/>
 			<button class="ck1" type="button" onclick="location.href='/admin/empDel?seq=${employee.main_seq}'">회원삭제</button>

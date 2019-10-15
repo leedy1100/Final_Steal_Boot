@@ -18,5 +18,6 @@ public interface MainBiz {
 	List<EmpDto> empList();
 	int empInsert(EmpDto dto);
 	int empDelete(int emp_no);
+	int empNameUpdate(String name, String emp_no);
 	
 }
