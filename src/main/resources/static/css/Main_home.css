@@ -24,7 +24,7 @@
 	#conference{
 		position : absolute;
 		display : inline;
-		width: 15%;
+		width: 12%;
 		height: 15%;
 		background-color: green;
 		border-radius: 0px 0px 1000px 0px;
@@ -34,9 +34,9 @@
 	#decision{
 		position : absolute;
 		display : inline;
-		width: 15%;
+		width: 12%;
 		height: 15%;
-		left: 85%;
+		left: 88%;
 		background-color: aqua;
 		border-radius: 0px 0px 0px 1000px;
 		text-align:right;
@@ -57,9 +57,7 @@
 	#myinfo{
 		position : absolute;
 		display : inline;
-		height: 10%;
-		left: 42%;
-		top:5%;
+		left: 15%;
 		display: none;
 		z-index:2;
 	}

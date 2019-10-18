@@ -9,10 +9,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Business support</title>
+
+<link rel="shortcut icon" href="image/stealLogo.ico">
 <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
-<link href="css/Main_myinfo.css" rel="stylesheet" type="text/css">
+<link href="css/Main_pwchange.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/Main_myinfo.js" ></script>
+
 </head>
 <body>
 <div id="myinfoform">
@@ -32,7 +35,7 @@
 			<input class="ck1" type="button" id="submit" onclick="update()" value="확인" >
 			<input type="submit" id="submitsum"/>
 			<br/>
-			<button class="ck1" type="button" onclick="back()">뒤로가기</button>
+			<input class="ck2" type="button" onclick="back()" value="뒤로가기" />
 		</form>
 	</div>
 </body>

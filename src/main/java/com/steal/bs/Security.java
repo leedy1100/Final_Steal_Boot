@@ -17,7 +17,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	AuthenticationProvider authenticationProvider;
     
 	@Override
-	public void configure(WebSecurity web) throws Exception {
+	public void configure(WebSecurity web) {
 		web.ignoring().antMatchers("/favicon.ico", "/css/**", "/image/**", "/js/**", "/resource/**", "/signup.main",
 				"/loginidchk.main", "/signupempchk.main", "/idsearch.main", "/pwsearch.main", "/EmailCheck.main",
 				"/pwchange.main", "/infoupdate.main");

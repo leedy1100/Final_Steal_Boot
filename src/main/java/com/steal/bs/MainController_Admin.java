@@ -2,6 +2,7 @@ package com.steal.bs;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,11 +22,15 @@ public class MainController_Admin {
 
 	@Autowired
 	MainBiz biz;
-
 	@RequestMapping("/admin/employeelist")
 	public String employeeList(Model model) {
 
-		model.addAttribute("list", biz.selectList());
+		List<MainDto> list = biz.selectList();
+		if(list.size()==1) {
+			model.addAttribute("list", null);
+		}else {
+			model.addAttribute("list", list);
+		}
 
 		return "admin_employeelist";
 	}
@@ -57,7 +62,7 @@ public class MainController_Admin {
 			System.out.println("empupdate error");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('사원번호를 확인해주세요.'); history.go(-1);</script>");
+			out.println("<script>alert('사원번호를 확인해주세요.'); history.go(-1); </script>");
 			out.flush();
 		}
 		model.addAttribute("list", biz.selectList());
@@ -121,8 +126,14 @@ public class MainController_Admin {
 
 	@RequestMapping("/admin/empList")
 	public String empList(Model model) {
-
-		model.addAttribute("list", biz.empList());
+		
+		List<EmpDto> list = biz.empList();
+		
+		if(list.size()==1) {
+			model.addAttribute("list", null);
+		}else {
+			model.addAttribute("list", list);
+		}
 
 		return "admin_emplist";
 	}

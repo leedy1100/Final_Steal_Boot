@@ -76,7 +76,7 @@ function pwsearchchk1(){
 				}
 			},
 			error: function(request, status, error){
-				alert("error 콘솔확인 요망");
+				alert("error 콘솔확인 요망 페스워드 체크");
 				console.log(request);
 				console.log(status);
 				console.log(error);
@@ -88,7 +88,7 @@ function pwsearchchk1(){
 function EmailCheckgo(emailchk) {
 	$.ajax({
 		type : "post",
-		url : "http://localhost:8787/bs/EmailCheck.main",
+		url : "https://192.168.10.7:8443/bs/EmailCheck.main",
         data:{email:emailchk},
 		datatype : "int",
 		success : function(data) {
@@ -102,7 +102,7 @@ function EmailCheckgo(emailchk) {
 			$("#pwsearchchk1").val("인증번호 보내기");
 			$("#pwsearchchk1").attr('disabled', true);
 		}, error: function(request, status, error){
-			alert("error 콘솔확인 요망");
+			alert("error 콘솔확인 요망 이메일");
 			console.log(request);
 			console.log(status);
 			console.log(error);

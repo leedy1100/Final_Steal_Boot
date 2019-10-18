@@ -12,9 +12,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.steal.bs.model.MainBiz;
-import com.steal.bs.model.MainBizImpl;
-
 @SpringBootApplication
 public class FinalprojectApplication {
 

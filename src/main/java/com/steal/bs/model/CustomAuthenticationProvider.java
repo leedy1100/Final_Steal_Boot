@@ -23,9 +23,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		
 		String id = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
-		System.out.println("id : " + id + "\t pw : " + password);
 		
-		System.out.println("USERDESER = " + userDeSer);
 		MainDto dto = (MainDto)userDeSer.loadUserByUsername(id);
 		if(!passwordEncoder.matches(password, dto.getMain_password())) {
 			System.out.println("비밀번호 오류");
@@ -36,7 +34,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			System.out.println("ENABLE 오류!");
             throw new  DisabledException("인증되지 않은 회원입니다.");
         }
-		System.out.println("provider끝!");
 		return new UsernamePasswordAuthenticationToken(id,password,dto.getAuthorities());
 	}
 

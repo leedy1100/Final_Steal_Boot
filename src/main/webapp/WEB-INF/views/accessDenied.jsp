@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>error</title>
+
+<link rel="shortcut icon" href="../image/stealLogo.ico">
+
 </head>
 <body>
  <h1>접근 권한이 없습니다.</h1>

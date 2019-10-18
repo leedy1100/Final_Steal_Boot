@@ -15,6 +15,8 @@
 <meta charset="UTF-8">
 <title>Business support</title>
 
+<link rel="shortcut icon" href="image/stealLogo.ico">
+
 <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
 <link href="css/Main_login.css" rel="stylesheet" type="text/css">
 <link href="css/Main_home.css" rel="stylesheet" type="text/css">
@@ -27,11 +29,7 @@
 
 <style type="text/css">
 .mycontent {
-    text-align: right;
-    position: absolute;
-    width: 500px;
-    margin-top: -31px;
-    margin-left: 180px;
+    padding-inline-start: 0px;
 }
 .mycontent li{
 	list-style: none;
@@ -91,24 +89,28 @@
 		<div id="conference" onclick="conference()" style="cursor:pointer">
 			<p style="cursor:pointer">화상회의</p>
 			<div id="conferenceform">
-				<a href="chathome.chat">채팅방 가기</a>
-			
-			
+				<a href="chathome.chat?id=<%= name %>">채팅방 가기</a>
 			
 			</div>
 		</div>
 		
 		<div id="myinfo">
-		<sec:authorize access="isAuthenticated()">
-		<ul class="mycontent">
-			<li><%=name %>님 <a href="../myinfo.main?id=<%=name %>">개인정보</a></li>
-			<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
-			<li><a href="admin/employeelist">사원목록</a></li>
-		</ul>
-			<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
-			   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
-			</form>
-		</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+				<ul class="mycontent">
+					<li><%=name %>님 <a href="../myinfo.main?id=<%=name %>">개인정보</a></li>
+					<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
+<%
+if(name.equals("zongyeng")){
+%>
+					<li><a href="admin/employeelist">사원목록</a></li>
+<%
+}
+%>
+				</ul>
+				<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
+					<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+				</form>
+			</sec:authorize>
 		</div>
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">

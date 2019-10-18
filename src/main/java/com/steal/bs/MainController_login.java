@@ -23,7 +23,7 @@ public class MainController_login {
 	@RequestMapping(value = "signup.main", method = RequestMethod.POST)
 	public String signup(Model model, @ModelAttribute MainDto dto) {
 		
-		if(dto.getMain_emp()==1) {
+		if(dto.getMain_emp()==0) {
 			dto.setMain_authority("ROLE_ADMIN");
 		}else {
 			dto.setMain_authority("ROLE_USER");

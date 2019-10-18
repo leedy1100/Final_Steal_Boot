@@ -5,22 +5,13 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 
-<% 
-	int logininfo = 0;
-	try{
-		logininfo = Integer.parseInt((String)request.getAttribute("logininfo"));
-	} catch (Exception e){
-		System.out.println("logininfo null point exception");
-	}
-	
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Business support</title>
 
+<link rel="shortcut icon" href="image/stealLogo.ico">
 <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
 <link href="css/Main_myinfo.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/Main_myinfo.js" ></script>
@@ -102,27 +93,4 @@
 	</div>
 
 </body>
-<%
-if(logininfo==3){
-%>		
-<script type="text/javascript">
-	
-	$(function(){
-		alert("정보 수정이 실패하였습니다.")
-	});
-
-</script>
-<%		
-	} else if(logininfo==5){
-%>		
-<script type="text/javascript">
-			
-	$(function(){
-		alert("회원탈퇴에 실패하였습니다.")
-	});
-
-</script>
-<%				
-	}
-%>
 </html>

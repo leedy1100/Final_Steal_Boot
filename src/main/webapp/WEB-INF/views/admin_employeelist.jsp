@@ -10,39 +10,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-#profile{
-	display: inline-block;
-	margin: 30px;
-	margin-top: 200px;
-}
-#profileAll{
-	text-align: center;
-	position : relative;
-	z-index:10;
-}
-a{
-	text-decoration: none;
-}
+<title>admin page</title>
 
-a:active {
-	
-}
-body{
-		margin: 0;
-	}
-#background{
-		position : absolute;
-		opacity:.3;
-		background-image: url("../image/main/main_background.jpg");
-		background-size: cover;
-		width: 100%;
-		height: 100%;
-}
+<link rel="shortcut icon" href="../image/stealLogo.ico">
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+
+<style type="text/css">
 .mycontent {
     text-align: right;
-    margin-left: 1460px;
+    margin-top: 20px;
+    margin-left: 10%;
     position: absolute;
 }
 .mycontent li{
@@ -61,21 +38,66 @@ body{
 	color: black;
 }
 .mycontent li :hover{
-	color: black;
-	font-weight: 1000;
+	color: blue;
 }
-#selectEmp {
-    position: absolute;
-    text-align: left;
-    margin-left: 500px;
-    margin-top: 160px;
-    font-weight: 700;
-}
+
 #mainlogo {
     position: absolute;
-    margin: 20px;
-    margin-left: 500px;
+    margin-top: 20px;
+    margin-left: 5%;
 }
+
+#selectEmp {
+    text-align: right;
+    font-weight: 700;
+}
+
+#profileAll{
+	text-align:center;
+	background-color: rgba(255,255,255,0.8);
+	position: absolute;
+	margin-top: 100px;
+	z-index:2;
+	width: 100%;
+	height: 100%
+}
+
+#profile{
+	display: inline-block;
+	margin: 10px;
+}
+
+a{
+	text-decoration: none;
+}
+
+body{
+		margin: 0;
+}
+	
+#background{
+		position : absolute;
+		opacity:.3;
+		background-image: url("../image/main/main_background.jpg");
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+}
+
+#empInsert {
+	margin-left: 20px;
+}
+
+#selectEmp {
+    text-align: right;
+    font-weight: 700;
+}
+
+#profileAll>p{
+	font-weight: 700;
+	font-size: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -87,25 +109,29 @@ body{
         name = auth.getName();
     }
 %>	
+
 	<div id="background"></div>
-	<div id="profileAll">
-	<div id="mainlogo"><a href="/">메인</a></div>
+	<div id="mainlogo"><a href="/"><img alt="MainLogo" src="../image/main/stealLogo.png" /></a></div>
 	<sec:authorize access="isAuthenticated()">
-			<ul class="mycontent">
-				<li><%=name %>님 <a href="../myinfo.main?id=<%=name %>">개인정보</a></li>
-				<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
-			</ul>
-				<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
-				   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
-				</form>
-			</sec:authorize>	
+		<ul class="mycontent">
+			<li><%=name %>님 <a href="../myinfo.main?id=<%=name %>">개인정보</a></li>
+			<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
+		</ul>
+		<form id="logout-form" action='<c:url value='/logout.main'/>' method="POST">
+		   <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+		</form>
+	</sec:authorize>
+
+	<div id="profileAll">
+	
 		<div id="selectEmp">
 			<a href="employeelist">가입한 사원</a>&nbsp;|
 			<a href="empList">등록된 사원</a>
 		</div>
+		<p>사원목록</p>
 		<c:choose>
 		<c:when test="${empty list }">
-			가입된 사원이 없습니다.
+			<p>가입된 사원이 없습니다.</p>
 		</c:when>
 		<c:otherwise>
 			<c:forEach items="${list }" var="dto">

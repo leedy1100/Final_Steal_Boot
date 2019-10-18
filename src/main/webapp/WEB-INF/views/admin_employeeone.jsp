@@ -10,8 +10,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+<title>admin page</title>
+
+<link rel="shortcut icon" href="../image/stealLogo.ico">
+
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
 <link href="../css/Main_myinfo.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 
@@ -39,6 +42,10 @@
 .mycontent li :hover{
 	color: white;
 	font-weight: 1000;
+}
+
+#myinfoform{
+	height: 550px;
 }
 </style>
 </head>
