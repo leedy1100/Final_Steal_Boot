@@ -65,3 +65,37 @@
 		position : absolute;
 		z-index:2;
 	}
+	
+.mycontent {
+    padding-inline-start: 0px;
+}
+.mycontent li{
+	list-style: none;
+	display: inline-block;
+	font-weight: 700;
+	border-left: 2px solid black;
+	padding-left: 8px;	
+	line-height: 85%;
+}
+.mycontent li:first-child{
+	border: none;
+}
+.mycontent li a{
+	text-decoration: none;
+	color: black;
+}
+.mycontent li :hover{
+	color: blue;
+}
+
+#conferenceform{
+	display: none;
+}
+
+#decisionform{
+	display: none;
+}
+
+#calendarform{
+	display: none;
+}

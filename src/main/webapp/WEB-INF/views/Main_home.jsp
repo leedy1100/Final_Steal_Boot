@@ -27,34 +27,25 @@
 <script type="text/javascript" src="js/Main_signup.js" ></script>
 <script type="text/javascript" src="js/Main_search.js" ></script>
 
+<link href="css/Conference.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/Conference.js" ></script>
+
+<link href="css/Decision.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/Decision.js" ></script>
+
+<link href="css/Calendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/Calendar.js" ></script>
+
 <style type="text/css">
-.mycontent {
-    padding-inline-start: 0px;
-}
-.mycontent li{
-	list-style: none;
-	display: inline-block;
-	font-weight: 700;
-	border-left: 2px solid black;
-	padding-left: 8px;	
-	line-height: 85%;
-}
-.mycontent li:first-child{
-	border: none;
-}
-.mycontent li a{
-	text-decoration: none;
-	color: black;
-}
-.mycontent li :hover{
-	color: black;
-	font-weight: 1000;
-}
+
 
 </style>
 
 <script type="text/javascript">
 
+$(function(){
+	
+});
 
 </script>
 <%
@@ -115,10 +106,16 @@ if(name.equals("zongyeng")){
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">
 			<p style="cursor:pointer">문서결재</p>
+			<div id="decisionform">
+			
+			</div>
 		</div>
 		
 		<div id="calendar" onclick="calendar()" style="cursor:pointer">
 			<p style="cursor:pointer">일정관리</p>
+			<div id="calendarform">
+			
+			</div>
 		</div>
 		
 	</div>
