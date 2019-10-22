@@ -20,7 +20,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) {
 		web.ignoring().antMatchers("/favicon.ico", "/css/**", "/image/**", "/js/**", "/resource/**", "/signup.main",
 				"/loginidchk.main", "/signupempchk.main", "/idsearch.main", "/pwsearch.main", "/EmailCheck.main",
-				"/pwchange.main", "/infoupdate.main");
+				"/pwchange.main", "/infoupdate.main", "/memberList.conference", "/depList.conference");
 	}
 	
     @Override
@@ -50,7 +50,6 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .csrf()
                 	.and()
                 .authenticationProvider(authenticationProvider);
-                
                 
     }
 }

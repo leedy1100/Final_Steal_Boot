@@ -26,7 +26,7 @@ public class FinalprojectApplication {
     
 		bean.setDataSource(dataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
-        bean.setTypeAliasesPackage("com.steal.bs.model");
+        bean.setTypeAliasesPackage("com.steal.bs.dto");
         
 		return bean.getObject();
 		

@@ -68,6 +68,14 @@ function conference(){
 	$("#decisionform").hide();
 	$("#calendarform").hide();
 	$("#conferenceform").show();
+	
+	$("#decision").attr("onclick","decision();");
+	$("#calendar").attr("onclick","calendar();");
+	$("#conference").removeAttr("onclick");
+	
+	sequentialStart();
+	roomListStart();
+	
 }
 
 function decision(){
@@ -91,6 +99,12 @@ function decision(){
 	$("#calendarform").hide();
 	$("#decisionform").show();
 	
+	$("#conference").attr("onclick","conference();");
+	$("#calendar").attr("onclick","calendar();");
+	$("#decision").removeAttr("onclick");
+	
+	
+	
 }
 
 function calendar(){
@@ -113,4 +127,9 @@ function calendar(){
 	$("#decisionform").hide();
 	$("#conferenceform").hide();
 	$("#calendarform").show();
+	
+	$("#conference").attr("onclick","conference();");
+	$("#decision").attr("onclick","decision();");
+	$("#calendar").removeAttr("onclick");
+	
 }

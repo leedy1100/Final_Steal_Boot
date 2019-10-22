@@ -1,5 +1,9 @@
 package com.steal.bs;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.steal.bs.dto.MainDto;
 import com.steal.bs.model.MainBiz;
-import com.steal.bs.model.MainDto;
 
 @Controller
 public class MainController_login {
@@ -21,7 +25,7 @@ public class MainController_login {
 	MainBiz biz;
 
 	@RequestMapping(value = "signup.main", method = RequestMethod.POST)
-	public String signup(Model model, @ModelAttribute MainDto dto) {
+	public String signup(Model model, @ModelAttribute MainDto dto, HttpSession session) {
 		
 		if(dto.getMain_emp()==0) {
 			dto.setMain_authority("ROLE_ADMIN");
@@ -34,6 +38,12 @@ public class MainController_login {
 			res = biz.insert(dto);
 		} catch (Exception e) {
 			System.out.println("signup.main Error");
+		}
+		
+		if(res==0) {
+			session.setAttribute("logininfo", "2");
+		} else {
+			session.setAttribute("logininfo", "1");
 		}
 		
 		model.addAttribute("res",res);
@@ -73,7 +83,7 @@ public class MainController_login {
 	}
 	
 	@RequestMapping(value = "infoupdate.main", method = RequestMethod.POST)
-	public String infoupdate(@ModelAttribute MainDto dto, HttpSession session) {
+	public void infoupdate(@ModelAttribute MainDto dto, HttpSession session, HttpServletResponse response) {
 		
 		int res = 0;
 		
@@ -81,19 +91,37 @@ public class MainController_login {
 			res = biz.update(dto);
 		} catch (Exception e) {
 			System.out.println("infoupdate.main Error");
-			session.setAttribute("logininfo", "3");
-			return "Main_myinfo";
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('정보 수정 실패. 관리자에게 문의하세요.'); history.go(-1); </script>");
+				out.flush();
+			} catch (IOException e1) {
+				System.out.println("PrintWriter 실패");
+			}
 		}
 		
 		if(res==0) {
-			session.setAttribute("logininfo", "3");
-			return "Main_myinfo";
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('정보수정 실패. 관리자에게 문의하세요.'); history.go(-1); </script>");
+				out.flush();
+			} catch (IOException e1) {
+				System.out.println("PrintWriter 실패");
+			}
 		} else {
-			session.removeAttribute("userinfo");
-			session.setAttribute("logininfo", "2");
+			session.invalidate();
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('정보 수정 되었습니다. 재 로그인 해주세요.'); location.href='/'</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		return "redirect:./";
 		
 	}
 	
@@ -108,7 +136,7 @@ public class MainController_login {
 	}
 	
 	@RequestMapping("infodelete.main")
-	public String delete(@RequestParam("seq") int seq, HttpSession session) {
+	public void delete(@RequestParam("seq") int seq, HttpSession session, HttpServletResponse response) {
 		
 		int res = 0;
 		
@@ -116,21 +144,38 @@ public class MainController_login {
 			res = biz.delete(seq);
 		} catch (Exception e) {
 			System.out.println("delete.main Error");
-			session.setAttribute("logininfo", "5");
-			return "Main_myinfo";
+			
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('회원탈퇴 실패. 관리자에게 문의하세요.'); history.go(-1); </script>");
+				out.flush();
+			} catch (IOException e1) {
+				System.out.println("PrintWriter 실패");
+			}
 		}
 		
 		if(res==0) {
-			session.setAttribute("logininfo", "5");
-			return "Main_myinfo";
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('회원탈퇴 실패. 관리자에게 문의하세요.'); history.go(-1); </script>");
+				out.flush();
+			} catch (IOException e1) {
+				System.out.println("PrintWriter 실패");
+			}
 		} else {
-			session.removeAttribute("userinfo");
-			session.setAttribute("logininfo", "4");
+			session.invalidate();
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('회원탈퇴 되었습니다.'); location.href='/'</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		session.invalidate();
-		
-		return "redirect:./";
 	}
 	
 	@RequestMapping("idsearch.main")

@@ -23,6 +23,7 @@
     position: relative;
     margin-right: 20px;
     margin-bottom: 40px;
+    color: white;
 }
 .mycontent li{
 	list-style: none;
@@ -40,8 +41,7 @@
 	color: white;
 }
 .mycontent li :hover{
-	color: white;
-	font-weight: 1000;
+	color: aqua;
 }
 
 #myinfoform{
@@ -60,8 +60,9 @@
     }
 %>
 	<sec:authorize access="isAuthenticated()">
+		
 		<ul class="mycontent">
-			<li> <a href="../myinfo.main?id=<%=name %>"><%=name %>님 개인정보</a></li>
+			<li> <%=name %>님 <a href="../myinfo.main?id=<%=name %>"> 개인정보</a></li>
 			<li><a href="#" onclick="document.getElementById('logout-form').submit();">로그아웃</a></li>
 			<li><a href="employeelist">사원목록</a></li>
 		</ul>

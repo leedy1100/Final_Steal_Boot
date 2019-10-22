@@ -1,4 +1,4 @@
-package com.steal.bs.model;
+package com.steal.bs.dto;
 
 import java.util.ArrayList;
 import java.util.Collection;

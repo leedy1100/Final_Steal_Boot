@@ -2,6 +2,9 @@ package com.steal.bs.model;
 
 import java.util.List;
 
+import com.steal.bs.dto.EmpDto;
+import com.steal.bs.dto.MainDto;
+
 public interface MainBiz {
 	
 	List<MainDto> selectList();

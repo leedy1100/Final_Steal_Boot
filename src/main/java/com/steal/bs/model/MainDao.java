@@ -2,9 +2,12 @@ package com.steal.bs.model;
 
 import java.util.List;
 
+import com.steal.bs.dto.EmpDto;
+import com.steal.bs.dto.MainDto;
+
 public interface MainDao {
 
-	String namespace= "main.";
+	final String namespace= "main.";
 
 	List<MainDto> selectList();
 	MainDto selectOne(String id);

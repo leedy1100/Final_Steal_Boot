@@ -1,4 +1,4 @@
-package com.steal.bs.model;
+package com.steal.bs.dto;
 
 public class EmpDto {
 
@@ -30,4 +30,5 @@ public class EmpDto {
 	public void setEmp_name(String emp_name) {
 		this.emp_name = emp_name;
 	}
+	
 }

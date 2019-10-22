@@ -40,3 +40,9 @@ function enterkey() {
         	loginidchk();
         }
 }
+
+function logout(){
+	
+	document.getElementById('logout-form').submit();
+	
+}

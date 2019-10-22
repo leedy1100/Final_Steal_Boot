@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="conference">
+
+	<select id="selectList" resultType="depDto">
+		SELECT DEP_NO, DEP_NAME
+		FROM DEP
+		ORDER BY DEP_NO
+	</select>
+	
+	<select id="selectRoomList" resultType="conferenceDto" parameterType="String">
+		SELECT NUM, NAME, PWD, TOTALCOUNT, REMAINCOUNT, MASTER, USER1, USER2, USER3, USER4, USER5, USER6, CONTENT
+		FROM FINAL_CHAT
+		WHERE MASTER=#{id} OR USER1=#{id} OR USER2=#{id} OR USER3=#{id} OR USER4=#{id} OR USER5=#{id} OR USER6=#{id}
+	</select>
+	
+	<select id="selectRoomMember" resultType="String" parameterType="String">
+		SELECT ROOM
+		FROM FINAL_CHATMEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<select id="selectJoinedMember" resultType="String" parameterType="String">
+		SELECT ID
+		FROM FINAL_CHATMEMBER
+		WHERE ROOM=#{room}
+	</select>
+	
+	<select id="getRoom" parameterType="String" resultType="conferenceDto">
+		SELECT * FROM FINAL_CHAT WHERE NAME = #{name} AND REMAINCOUNT != 0
+	</select>
+
+</mapper>

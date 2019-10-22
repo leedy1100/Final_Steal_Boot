@@ -10,6 +10,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.steal.bs.dto.MainDto;
+
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 

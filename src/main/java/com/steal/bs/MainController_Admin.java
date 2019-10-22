@@ -13,15 +13,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.steal.bs.model.EmpDto;
+import com.steal.bs.dto.EmpDto;
+import com.steal.bs.dto.MainDto;
 import com.steal.bs.model.MainBiz;
-import com.steal.bs.model.MainDto;
 
 @Controller
 public class MainController_Admin {
 
 	@Autowired
 	MainBiz biz;
+	
 	@RequestMapping("/admin/employeelist")
 	public String employeeList(Model model) {
 
