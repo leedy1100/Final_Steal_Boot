@@ -46,6 +46,29 @@ function hoverevent(){
 }
 $(function(){
 	hoverevent();
+	
+	var childWindow;
+	$("#insertdoc").on("click", function() {
+		var url = "insertdocform";
+		childWindow = window.open(url, "_blank", "width=600, height=400, top=300, left=670, resizable=no");
+		$("#layer_one").css("display","block");
+	});
+	
+	$("#layer_one").on("click", function() {
+		childWindow.focus();
+	});
+	
+	$("#decision_menu").on("click", "a", function() {
+		var clickText = $(this).text();
+		if(clickText.includes("▶")) {
+			$(this).text(clickText.replace("▶", "▼"));
+			$(this).next().next().slideToggle(200);
+		} else {
+			$(this).text(clickText.replace("▼", "▶"));
+			$(this).next().next().slideToggle(200);
+		}
+	});
+	
 });
 
 function conference(){
@@ -103,7 +126,7 @@ function decision(){
 	$("#calendar").attr("onclick","calendar();");
 	$("#decision").removeAttr("onclick");
 	
-	
+	$("#draft_doc").next().next().load("draftdoc");
 	
 }
 
