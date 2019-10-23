@@ -46,13 +46,8 @@
 
 <style type="text/css">
 
-
 </style>
 
-<script type="text/javascript">
-
-
-</script>
 <%
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     Object principal = auth.getPrincipal();
@@ -77,7 +72,6 @@
 %>
 </head>
 <body>
-	
 	<div id="mainpage">
 	
 		<div id="background"></div>
