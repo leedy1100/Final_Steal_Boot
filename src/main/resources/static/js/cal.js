@@ -56,6 +56,7 @@ function calDateWhenResize(event) {
   return newDates;
 }
 
+
 function calDateWhenDragnDrop(event) {
   // 드랍시 수정된 날짜반영
   var newDates = {
@@ -158,8 +159,9 @@ var calendar = $('#calendar').fullCalendar({
    * ************** */
   events: function (start, end, timezone, callback) {
 
-	var start1 = moment(start).add(1, 'month').format('YYYY-MM-DD').substring(0,7);
-//	  alert(start1);
+//	var start1 = moment(start).add(1, 'month').format('YYYY-MM-DD').substring(0,7);
+	var date = $("#calendar").fullCalendar('getDate').format('YYYY-MM-DD').substring(0,7);
+//	  alert(date);
 
     $.ajax({
       type: "GET",
@@ -168,7 +170,7 @@ var calendar = $('#calendar').fullCalendar({
 //      dataType: "json",
       data: { 
         // 실제 사용시, 날짜를 전달해 일정기간 데이터만 받아오기를 권장
-    	  start: start1
+    	  start: date
 /*         	"_id": 1,
     		"title": "거래처 미팅",
     		"description": "Test.",
