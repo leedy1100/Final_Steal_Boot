@@ -108,7 +108,7 @@ if(name.equals("zongyeng")){
 		</div>
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">
-			<p style="cursor:pointer"></p>
+			<p style="cursor:pointer">문서결제</p>
 			<div id="decisionform">
 
 			</div>
