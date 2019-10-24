@@ -23,4 +23,8 @@ public class DocumentBiz {
 		return dao.docInfo(title);
 	}
 	
+	public int initAlert() {
+		return dao.initAlert();
+	}
+	
 }

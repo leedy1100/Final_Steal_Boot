@@ -39,4 +39,9 @@ public class DocumentDao {
 		return dto;
 	}
 	
+	public int initAlert() {
+		int res = sqlSession.delete("document.initAlert");
+		return res;
+	}
+	
 }
