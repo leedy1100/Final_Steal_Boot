@@ -115,9 +115,17 @@ if(name.equals("zongyeng")){
 		</div>
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">
-			<p style="cursor:pointer"></p>
-			<div id="decisionform">
-
+			<p style="cursor:pointer">문서결재</p>
+			<div id="decision_menu">
+				<a href="#" id="draft_doc">▶ 기안 문서</a><br>
+				<div></div><br>
+				<a href="#" id="settlement_progress">▶ 결재 진행 문서</a><br>
+				<div></div><br>
+				<a href="#" id="settlement_wait">▶ 결재 대기 문서</a><br>
+				<div></div><br>
+				<a href="#" id="settlement_complete">▶ 결재 완료 문서</a><br>
+				<div></div><br>
+				<input type="button" id="insertdoc" value="문서 작성">
 			</div>
 		</div>
 		

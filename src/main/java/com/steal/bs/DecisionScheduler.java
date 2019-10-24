@@ -19,7 +19,7 @@ public class DecisionScheduler {
 	@Autowired
 	private JobLauncher jobLauncher;
 	
-	@Scheduled(cron = "0 56 19 * * *")
+	@Scheduled(cron = "0 45 20 * * *")
 	public void scheduleTest() throws Exception {
 		biz.initAlert();
 		jobLauncher.run(job, new JobParameters());

@@ -127,6 +127,7 @@ function decision(){
 	$("#decision").removeAttr("onclick");
 	
 	$("#draft_doc").next().next().load("draftdoc");
+	$("#decision_menu").css("display","block");
 	
 }
 
