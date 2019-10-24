@@ -23,4 +23,8 @@
 		        #{collaborator}, #{settlement})
 	</insert>
 	
+	<delete id="initAlert">
+		DELETE FROM ALERT
+	</delete>
+	
 </mapper>
