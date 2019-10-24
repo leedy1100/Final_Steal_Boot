@@ -208,7 +208,7 @@ var calendar = $('#calendar').fullCalendar({
         callback(response);    
       },
       error: function(){
-    		alert("실패");
+    		alert("Event Data 가져오기 실패");
       }
     });
   },
@@ -248,6 +248,9 @@ var calendar = $('#calendar').fullCalendar({
       },
       success: function (response) {
         alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
+      },
+      error: function(){
+  		alert("Event Data Resize 실패");
       }
     });
 
@@ -271,11 +274,11 @@ var calendar = $('#calendar').fullCalendar({
         return false;
       }
     }
-//    alert(event._id);
+
     // 드랍시 수정된 날짜반영
     var newDates = calDateWhenDragnDrop(event);
     
-    alert(event._id);
+//    alert(event._id);
     //드롭한 일정 업데이트
     $.ajax({
       type: "POST",

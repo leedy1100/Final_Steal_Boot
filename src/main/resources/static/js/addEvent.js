@@ -38,7 +38,7 @@ var newEvent = function (start, end, eventType) {
     $('#save-event').unbind();
     $('#save-event').on('click', function () {
 
-    	alert('insert Event');
+//    	alert('insert Event');
         var eventData = {
         		
                 title: editTitle.val(),
@@ -80,7 +80,7 @@ var newEvent = function (start, end, eventType) {
         editAllDay.prop('checked', false);
         eventModal.modal('hide');
         
-        alert(eventData.title);
+//        alert(eventData.title);
         //새로운 일정 저장
         $.ajax({
             type: "POST",
