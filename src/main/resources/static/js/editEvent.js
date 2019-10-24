@@ -67,7 +67,6 @@ var editEvent = function (event, element, view) {
 
         eventModal.modal('hide');
 
-
         event.allDay = statusAllDay;
         event.title = editTitle.val();
         event.start = startDate;
@@ -90,7 +89,7 @@ var editEvent = function (event, element, view) {
         
         $("#calendar").fullCalendar('updateEvent', event);
 
-        alert(event._id);
+//        alert(event._id);
         //일정 업데이트
         $.ajax({
             type: "POST",
@@ -130,7 +129,7 @@ var editEvent = function (event, element, view) {
         $("#calendar").fullCalendar('removeEvents', [event._id]);
         eventModal.modal('hide');
         
-        alert(event._id);
+//        alert(event._id);
         //삭제시
         $.ajax({
             type: "POST",
