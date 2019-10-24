@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="document">
+	<select id="selectList" resultType="documentDto">
+		SELECT DOC_SEQ, TITLE, WRITER, DRAFT_DATE, DEADLINE,
+		       FSETTLE_DATE, COLLABORATOR, SETTLEMENT, DOC_LOCATION
+		FROM DOCSETTLE
+		ORDER BY DOC_SEQ DESC
+	</select>
+
+	<select id="docInfo" resultType="documentDto">
+		SELECT TITLE, WRITER, DRAFT_DATE, DEADLINE,
+		       COLLABORATOR, SETTLEMENT, CONTENT
+		FROM DOCSETTLE
+		WHERE TITLE = #{title}
+	</select>
+	
+	<insert id="insertDoc" parameterType="documentDto">
+		INSERT INTO DOCSETTLE (DOC_SEQ, TITLE, WRITER, DRAFT_DATE,
+		                       DEADLINE, CONTENT, COLLABORATOR, SETTLEMENT)
+		VALUES (DOCSEQ.NEXTVAL, #{title}, #{writer},
+		        #{draft_date}, #{deadline}, #{content},
+		        #{collaborator}, #{settlement})
+	</insert>
+	
+	<delete id="initAlert">
+		DELETE FROM ALERT
+	</delete>
+	
+</mapper>

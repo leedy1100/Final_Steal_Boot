@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="calendar">
+  
+  	<resultMap type="calDto" id="calMap">
+  		<result column="SEQ" property="_id"/>
+  		<result column="TITLE" property="title"/>
+  		<result column="EVENTSTART" property="start"/>
+  		<result column="EVENTEND" property="end"/>
+  		<result column="DESCRIPTION" property="description"/>
+  		<result column="EVENTTYPE" property="type"/>
+  		<result column="BGCOLOR" property="backgroundColor"/>
+  		<result column="TEXTCOLOR" property="textColor"/>
+  		<result column="ALRAM" property="alram"/>
+  		<result column="ALLDAY" property="allDay"/>
+  	</resultMap>
+  	
+  	<select id="selectEventList" resultMap="calMap" >
+  		SELECT SEQ,TITLE,EVENTSTART,EVENTEND,DESCRIPTION,EVENTTYPE,BGCOLOR,TEXTCOLOR,ALRAM,ALLDAY
+  			FROM CALBOARD
+  			WHERE SUBSTR(EVENTSTART,0,7)=#{start}
+  	</select> 
+ 	
+  	<insert id="insertEvent" parameterType="calDto">
+  		INSERT INTO CALBOARD VALUES(CALBOARDSEQ.NEXTVAL,#{title},#{start},#{end},#{description},#{type},
+  			#{backgroundColor},#{textColor},0,'N')
+  	</insert>
+ 
+ 	<delete id="deleteEvent">
+ 		DELETE CALBOARD WHERE SEQ=#{seq} 
+ 	</delete>
+ 	
+ 	<update id="updateEvent" parameterType="calDto">
+ 		UPDATE CALBOARD SET TITLE=#{title},EVENTSTART=#{start},EVENTEND=#{end},DESCRIPTION=#{description},
+ 			EVENTTYPE=#{type},BGCOLOR=#{backgroundColor},TEXTCOLOR=#{textColor}
+ 			WHERE SEQ=#{id} 
+  
+ 	</update>
+
+</mapper>

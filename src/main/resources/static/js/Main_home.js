@@ -35,7 +35,7 @@ function hoverevent(){
 					$(this).animate({"opacity":"1"},100);
 				}
 			);
-		$("#calendar").hover(
+		$("#calendar2").hover(
 				function calendaronevent() {
 					$(this).animate({"opacity":".7"},100);
 				}, function calendaroutevent() {
@@ -46,6 +46,29 @@ function hoverevent(){
 }
 $(function(){
 	hoverevent();
+	
+	var childWindow;
+	$("#insertdoc").on("click", function() {
+		var url = "insertdocform";
+		childWindow = window.open(url, "_blank", "width=600, height=400, top=300, left=670, resizable=no");
+		$("#layer_one").css("display","block");
+	});
+	
+	$("#layer_one").on("click", function() {
+		childWindow.focus();
+	});
+	
+	$("#decision_menu").on("click", "a", function() {
+		var clickText = $(this).text();
+		if(clickText.includes("▶")) {
+			$(this).text(clickText.replace("▶", "▼"));
+			$(this).next().next().slideToggle(200);
+		} else {
+			$(this).text(clickText.replace("▼", "▶"));
+			$(this).next().next().slideToggle(200);
+		}
+	});
+	
 });
 
 function conference(){
@@ -55,22 +78,22 @@ function conference(){
 	$("#myinfo").animate({"left":"20%"});
 	$("#conference").css({"z-index":"0","cursor":"default"});
 	$("#decision").css({"z-index":"1","cursor":"pointer"});
-	$("#calendar").css({"z-index":"1","cursor":"pointer"});
+	$("#calendar2").css({"z-index":"1","cursor":"pointer"});
 	hoverevent();
 	$("#conference").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1"});
 	$("#conference").unbind();
 	$("#conference>p").fadeIn();
 	$("#decision>p").fadeOut();
-	$("#calendar>p").fadeOut();
+	$("#calendar2>p").fadeOut();
 	$("#decision").animate({"width":"5%","height":"5%","left": "95%","border-bottom-left-radius":"1000px"});
-	$("#calendar").animate({"width":"5%","height":"5%","border-top-left-radius":"1000px","border-top-right-radius":"1000px","top": "95%","left": "47.5%"});
+	$("#calendar2").animate({"width":"5%","height":"5%","border-top-left-radius":"1000px","border-top-right-radius":"1000px","top": "95%","left": "47.5%"});
 	
 	$("#decisionform").hide();
-	$("#calendarform").hide();
+	$("#calendarform2").hide();
 	$("#conferenceform").show();
 	
 	$("#decision").attr("onclick","decision();");
-	$("#calendar").attr("onclick","calendar();");
+	$("#calendar2").attr("onclick","calendar2();");
 	$("#conference").removeAttr("onclick");
 	
 	sequentialStart();
@@ -85,40 +108,41 @@ function decision(){
 	$("#myinfo").animate({"left":"20%"});
 	$("#conference").css({"z-index":"1","cursor":"pointer"});
 	$("#decision").css({"z-index":"0","cursor":"default"});
-	$("#calendar").css({"z-index":"1","cursor":"pointer"});
+	$("#calendar2").css({"z-index":"1","cursor":"pointer"});
 	hoverevent();
 	$("#decision").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1","top": "0%","left": "0%"});
 	$("#decision").unbind();
 	$("#decision>p").fadeIn();
 	$("#conference>p").fadeOut();
-	$("#calendar>p").fadeOut();
+	$("#calendar2>p").fadeOut();
 	$("#conference").animate({"width":"5%","height":"5%","border-bottom-right-radius":"1000px"});
-	$("#calendar").animate({"width":"5%","height":"5%","border-top-left-radius":"1000px","border-top-right-radius":"1000px","top": "95%","left": "47.5%"});
+	$("#calendar2").animate({"width":"5%","height":"5%","border-top-left-radius":"1000px","border-top-right-radius":"1000px","top": "95%","left": "47.5%"});
 	
 	$("#conferenceform").hide();
-	$("#calendarform").hide();
+	$("#calendarform2").hide();
 	$("#decisionform").show();
 	
 	$("#conference").attr("onclick","conference();");
-	$("#calendar").attr("onclick","calendar();");
+	$("#calendar2").attr("onclick","calendar2();");
 	$("#decision").removeAttr("onclick");
 	
-	
+	$("#draft_doc").next().next().load("draftdoc");
+	$("#decision_menu").css("display","block");
 	
 }
 
-function calendar(){
-	$("#calendar>p").css({"display":"inline","cursor":"default"});
+function calendar2(){
+	$("#calendar2>p").css({"display":"inline","cursor":"default"});
 	$("#myinfo>br").remove();
 	$("#myinfo").css({"top":"0","margin":"auto","width":"auto","height":"auto"});
 	$("#myinfo").animate({"left":"6%"});
 	$("#conference").css({"z-index":"1","cursor":"pointer"});
 	$("#decision").css({"z-index":"1","cursor":"pointer"});
-	$("#calendar").css({"z-index":"0","cursor":"default"});
+	$("#calendar2").css({"z-index":"0","cursor":"default"});
 	hoverevent();
-	$("#calendar").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1","top": "0%","left": "0%"});
-	$("#calendar").unbind();
-	$("#calendar>p").fadeIn();
+	$("#calendar2").animate({"width":"100%","height":"100%","border-radius":"0","opacity":"1","top": "0%","left": "0%"});
+	$("#calendar2").unbind();
+	$("#calendar2>p").fadeIn();
 	$("#conference>p").fadeOut();
 	$("#decision>p").fadeOut();
 	$("#conference").animate({"width":"5%","height":"5%","border-bottom-right-radius":"1000px"});
@@ -126,10 +150,10 @@ function calendar(){
 	
 	$("#decisionform").hide();
 	$("#conferenceform").hide();
-	$("#calendarform").show();
+	$("#calendarform2").show();
 	
 	$("#conference").attr("onclick","conference();");
 	$("#decision").attr("onclick","decision();");
-	$("#calendar").removeAttr("onclick");
+	$("#calendar2").removeAttr("onclick");
 	
 }
