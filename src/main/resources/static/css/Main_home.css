@@ -42,11 +42,7 @@
 		border-radius: 0px 0px 0px 1000px;
 		text-align: right;
 	}
-<<<<<<< HEAD
 	#decision>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
-	#calendar2{
-=======
-	
 	#decision_alert {
 		position: absolute;
 		top: 250px;
@@ -90,8 +86,7 @@
 		opacity: 0.7;
 	}
 	
-	#calendar{
->>>>>>> branch 'master' of https://github.com/SuperCat1121/FINAL_Steal_Boot
+	#calendar2{
 		position : absolute;
 		display : inline;
 		width: 15%;
