@@ -42,7 +42,7 @@
 		text-align:right;
 	}
 	#decision>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
-	#calendar{
+	#calendar2{
 		position : absolute;
 		display : inline;
 		width: 15%;
@@ -53,7 +53,7 @@
 		border-radius: 1000px 1000px 0px 0px;
 		text-align:center;
 	}
-	#calendar>p{ font-size: 2.5vw; margin-block-start: 1.5em; margin-block-end: 0em; }
+	#calendar2>p{ font-size: 2.5vw; margin-block-start: 1.5em; margin-block-end: 0em; }
 	#myinfo{
 		position : absolute;
 		display : inline;
@@ -96,6 +96,6 @@
 	display: none;
 }
 
-#calendarform{
+#calendarform2{
 	display: none;
 }
