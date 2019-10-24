@@ -33,14 +33,23 @@
 	#conference>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
 	
 	#decision {
-		position : absolute;
-		display : inline;
+		position: absolute;
+		display: inline;
 		width: 15%;
 		height: 15%;
 		left: 85%;
 		background-color: aqua;
 		border-radius: 0px 0px 0px 1000px;
-		text-align:right;
+		text-align: right;
+	}
+	
+	#decision_alert {
+		position: absolute;
+		top: 250px;
+    	left: 190px;
+		background: orange;
+		width: 200px;
+		height: 280px;
 	}
 	
 	#decision > p {

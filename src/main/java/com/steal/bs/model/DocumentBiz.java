@@ -19,5 +19,8 @@ public class DocumentBiz {
 		return dao.insertDoc(dto);
 	}
 	
+	public DocumentDto docInfo(String title) {
+		return dao.docInfo(title);
+	}
 	
 }

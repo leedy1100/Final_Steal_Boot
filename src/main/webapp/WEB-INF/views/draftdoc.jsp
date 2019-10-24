@@ -24,6 +24,7 @@
 	<table>
 		<tr>
 			<th>문서번호</th>
+			<th>제목</th>
 			<th>작성자</th>
 			<th>기안일</th>
 			<th>결재기한</th>
@@ -33,6 +34,7 @@
 		<c:forEach items="${list}" var="dto">
 			<tr>
 				<td>${dto.doc_seq}</td>
+				<td><a href="docinfo?title=${dto.title}">${dto.title}</a></td>
 				<td>${dto.writer}</td>
 				<td>${dto.draft_date}</td>
 				<td>${dto.deadline}</td>

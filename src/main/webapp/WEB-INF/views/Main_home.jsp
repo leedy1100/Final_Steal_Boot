@@ -110,6 +110,7 @@ if(name.equals("zongyeng")){
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">
 			<p style="cursor:pointer">문서결재</p>
+			<div id="decision_alert"></div>
 			<div id="decision_menu">
 				<a href="#" id="draft_doc">▶ 기안 문서</a><br>
 				<div></div><br>

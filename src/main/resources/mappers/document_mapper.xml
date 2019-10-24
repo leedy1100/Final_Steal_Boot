@@ -7,6 +7,13 @@
 		FROM DOCSETTLE
 		ORDER BY DOC_SEQ DESC
 	</select>
+
+	<select id="docInfo" resultType="documentDto">
+		SELECT TITLE, WRITER, DRAFT_DATE, DEADLINE,
+		       COLLABORATOR, SETTLEMENT, CONTENT
+		FROM DOCSETTLE
+		WHERE TITLE = #{title}
+	</select>
 	
 	<insert id="insertDoc" parameterType="documentDto">
 		INSERT INTO DOCSETTLE (DOC_SEQ, TITLE, WRITER, DRAFT_DATE,
@@ -15,4 +22,5 @@
 		        #{draft_date}, #{deadline}, #{content},
 		        #{collaborator}, #{settlement})
 	</insert>
+	
 </mapper>

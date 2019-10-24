@@ -69,4 +69,12 @@ public class MainController_move {
 		return "draftdoc";
 	}
 	
+	@RequestMapping("docinfo")
+	public String docInfo(Model model, HttpServletRequest request) {
+		String title = request.getParameter("title");
+		DocumentDto dto = biz.docInfo(title);
+		model.addAttribute("dto", dto);
+		return "docinfo";
+	}
+	
 }
