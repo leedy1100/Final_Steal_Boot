@@ -31,18 +31,67 @@
 		text-align: left;
 	}
 	#conference>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
-	#decision{
-		position : absolute;
-		display : inline;
-		width: 12%;
+	
+	#decision {
+		position: absolute;
+		display: inline;
+		width: 15%;
 		height: 15%;
-		left: 88%;
+		left: 85%;
 		background-color: aqua;
 		border-radius: 0px 0px 0px 1000px;
-		text-align:right;
+		text-align: right;
 	}
+<<<<<<< HEAD
 	#decision>p{ font-size: 2.5vw; margin-block-start: 0.8em; }
 	#calendar2{
+=======
+	
+	#decision_alert {
+		position: absolute;
+		top: 250px;
+    	left: 190px;
+		background: orange;
+		width: 200px;
+		height: 280px;
+	}
+	
+	#decision > p {
+		font-size: 2.5vw;
+		margin-block-start: 0.8em;
+	}
+	
+	#decision_menu {
+		background: lime;
+		font-size: 20px;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+		margin-top: 150px;
+		width: 700px;
+		height: 350px;
+	}
+	
+	#decision_menu div {
+		display: none;
+	}
+	
+	#draft_doc, #settlement_progress, #settlement_wait, #settlement_complete {
+		
+	}
+	
+	#layer_one {
+		background: orange;
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 3;
+		opacity: 0.7;
+	}
+	
+	#calendar{
+>>>>>>> branch 'master' of https://github.com/SuperCat1121/FINAL_Steal_Boot
 		position : absolute;
 		display : inline;
 		width: 15%;
