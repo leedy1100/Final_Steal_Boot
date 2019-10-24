@@ -22,7 +22,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Business support</title>
-
+<link rel=" shortcut icon" href="image/favicon.ico">
+<link rel="stylesheet" href="css/fullcalendar.min.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href='css/select2.min.css' />
+<link rel="stylesheet" href='css/bootstrap-datetimepicker.min.css' />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/calendar.css"> 
 <link rel="shortcut icon" href="image/stealLogo.ico">
 
 <script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
