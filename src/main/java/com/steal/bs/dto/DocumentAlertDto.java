@@ -1,4 +1,4 @@
-package com.steal.bs.model;
+package com.steal.bs.dto;
 
 import lombok.Getter;
 import lombok.Setter;

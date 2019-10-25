@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.steal.bs.model.DocumentBiz;
-import com.steal.bs.model.DocumentDto;
+import com.steal.bs.Document.DocumentBiz;
+import com.steal.bs.dto.DocumentDto;
 
 @Controller
 public class MainController_move {

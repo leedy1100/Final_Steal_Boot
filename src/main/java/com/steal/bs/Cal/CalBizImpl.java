@@ -1,4 +1,4 @@
-package com.steal.bs.model;
+package com.steal.bs.Cal;
 
 import java.util.List;
 

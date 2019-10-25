@@ -45,16 +45,13 @@
 <link href="css/Conference.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/Conference.js" ></script>
 
-<link href="css/Decision.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/Decision.js" ></script>
+<style type="text/css">
 
+#calendar{
+	height: 70%;
+}
 
-
-
-<script type="text/javascript">
-
-
-</script>
+</style>
 <%
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     Object principal = auth.getPrincipal();
@@ -116,16 +113,18 @@ if(name.equals("zongyeng")){
 		
 		<div id="decision" onclick="decision()" style="cursor:pointer">
 			<p style="cursor:pointer">문서결재</p>
+			<div id="decisionform">
 			<div id="decision_menu">
 				<a href="#" id="draft_doc">▶ 기안 문서</a><br>
-				<div></div><br>
-				<a href="#" id="settlement_progress">▶ 결재 진행 문서</a><br>
-				<div></div><br>
-				<a href="#" id="settlement_wait">▶ 결재 대기 문서</a><br>
-				<div></div><br>
-				<a href="#" id="settlement_complete">▶ 결재 완료 문서</a><br>
-				<div></div><br>
-				<input type="button" id="insertdoc" value="문서 작성">
+					<div></div><br>
+					<a href="#" id="settlement_progress">▶ 결재 진행 문서</a><br>
+					<div></div><br>
+					<a href="#" id="settlement_wait">▶ 결재 대기 문서</a><br>
+					<div></div><br>
+					<a href="#" id="settlement_complete">▶ 결재 완료 문서</a><br>
+					<div></div><br>
+					<input type="button" id="insertdoc" value="문서 작성">
+				</div>
 			</div>
 		</div>
 		
@@ -134,7 +133,6 @@ if(name.equals("zongyeng")){
 			<p style="cursor:pointer">일정관리</p>
 			<div id="calendarform2">
 				<div class="container">
-		        <!-- 일자 클릭시 메뉴오픈 -->
 			        <div id="contextMenu" class="dropdown clearfix">
 	        		    <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
 	                		style="display:block;position:static;margin-bottom:5px;">
@@ -279,7 +277,7 @@ if(name.equals("zongyeng")){
 		</div>
 				
 	</div>
-				        <!-- 일정 추가 MODAL --> 
+	
 	<div class="modal fade" tabindex="-1" role="dialog" id="eventModal" >
 	            <div class="modal-dialog" role="document">
 	                <div class="modal-content">
@@ -373,22 +371,23 @@ if(name.equals("zongyeng")){
 	                        <button type="button" class="btn btn-danger" id="deleteEvent">삭제</button>
 	                        <button type="button" class="btn btn-primary" id="updateEvent">저장</button>
 	                    </div>
-	            </div><!-- /.modal-content  --> 
-	        </div><!-- /.modal-dialog  --> 
-	    </div><!-- /.modal  -->       
-    <!-- /.container -->
-    <script src="js/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="js/moment.min.js"></script>
- <script src="js/fullcalendar.min.js"></script>
- <script src="js/ko.js"></script>
- <script src="js/select2.min.js"></script>
- <script src="js/bootstrap-datetimepicker.min.js"></script>
- <script src="js/cal.js"></script>
- <script src="js/addEvent.js"></script>
- <script src="js/editEvent.js"></script>
- <script src="js/etcSetting.js"></script>
+	            </div>
+	        </div>
+	    </div>
 </body>
+
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/fullcalendar.min.js"></script>
+<script src="js/ko.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/cal.js"></script>
+<script src="js/addEvent.js"></script>
+<script src="js/editEvent.js"></script>
+<script src="js/etcSetting.js"></script>
+
 <% 
 	if(logininfo==1){
 %>

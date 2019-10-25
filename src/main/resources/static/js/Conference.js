@@ -40,10 +40,10 @@ function show(){
 			}
 			
 			if(memberList[i].main_id==mastername){
-				$("#depNum"+emp.substring(2,4)).append('<input type="checkbox" name="id" onClick="count_ck(this);" disabled="disabled" value="'+memberList[i].main_id+'">'+memberList[i].main_id+'('+memberList[i].main_name+')</input><br/>');
+				$("#depNum"+emp.substring(2,4)).append('<input type="checkbox" name="id" onClick="count_ck(this);" disabled="disabled" value="'+memberList[i].main_id+' ">'+memberList[i].main_id+'('+memberList[i].main_name+')</input><br/>');
 				$("#depNum"+emp.substring(2,4)).append('<input type="hidden" value="'+$("#depNum"+emp.substring(2,4)+">a").text()+'부서가 생성한 회의방" name="content" />');
 			} else {
-				$("#depNum"+emp.substring(2,4)).append('<input type="checkbox" name="id" onClick="count_ck(this);" value="'+memberList[i].main_id+'">'+memberList[i].main_id+'('+memberList[i].main_name+')</input><br/>');
+				$("#depNum"+emp.substring(2,4)).append('<input type="checkbox" name="id" onClick="count_ck(this);" value="'+memberList[i].main_id+'" title="'+memberList[i].main_name+'" >'+memberList[i].main_id+'('+memberList[i].main_name+')</input><br/>');
 			}
 			
 		}
@@ -94,6 +94,7 @@ function roomsubmit(){
 						alert("이미 존재하는 방이름 입니다.");
 						return;
 					} else {
+						
 						$("#memberDep").append('<input type="hidden" name="name" value="'+inputString+'" />');
 						
 						$("#memberDep").submit();

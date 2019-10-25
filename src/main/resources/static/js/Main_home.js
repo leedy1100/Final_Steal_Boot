@@ -18,6 +18,8 @@ $(window).resize(function() {
 	$("#pwsearchform").css("margin-top",height/2-200);
 	$("#signupform").css("margin-top",height/2-350);
 	$("#userpageform").css({"width":width,"height":height});
+	$(".fc-row.fc-week.fc-widget-content").css("height","10%");
+	$(".fc-scroller.fc-day-grid-container").css("height","60%");
 });
 
 function hoverevent(){

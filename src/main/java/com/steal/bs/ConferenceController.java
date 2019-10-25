@@ -193,7 +193,7 @@ public class ConferenceController {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
-			out.println("<form action=\"http://192.168.10.7:8787/bs/chat.tiles\" id=\"send\"  method=\"get\" >\r\n" + 
+			out.println("<form action=\"http://192.168.110.180:8787/bs/chat.tiles\" id=\"send\"  method=\"get\" >\r\n" + 
 					"		<input type=\"hidden\" name=\"name\" value=\""+dto.getName()+"\" >\r\n" + 
 					"		<input type=\"hidden\" name=\"totalcount\" value=\""+dto.getTotalcount()+"\" >\r\n" + 
 					"		<input type=\"hidden\" name=\"master\" value=\""+dto.getMaster()+"\" >\r\n" + 
@@ -221,7 +221,7 @@ public class ConferenceController {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
-			out.println("<form action=\"http://192.168.10.7:8787/bs/chat.tiles\" id=\"send\"  method=\"get\" >\r\n" + 
+			out.println("<form action=\"http://192.168.110.180:8787/bs/chat.tiles\" id=\"send\"  method=\"get\" >\r\n" + 
 					"		<input type=\"hidden\" name=\"name\" value=\""+dto.getName()+"\" >\r\n" +
 					"		<input type=\"hidden\" name=\"user1\" value=\""+dto.getUser1()+"\" >\r\n" + 
 					"	</form><script type=\"text/javascript\">\r\n" + 

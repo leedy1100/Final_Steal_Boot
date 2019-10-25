@@ -26,7 +26,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.steal.bs.model.DocumentAlertDto;
+import com.steal.bs.dto.DocumentAlertDto;
 
 @Configuration
 public class DecisionBatchConfig {
@@ -111,8 +111,8 @@ public class DecisionBatchConfig {
 		BasicDataSource source = new BasicDataSource();
 		source.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		source.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		source.setUsername("kh");
-		source.setPassword("kh");
+		source.setUsername("FINAL");
+		source.setPassword("FINAL");
 		return source;
 	}
 	
@@ -146,7 +146,7 @@ public class DecisionBatchConfig {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(datasource);
 		factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*.xml"));
-		factoryBean.setTypeAliasesPackage("com.steal.bs.*");
+		factoryBean.setTypeAliasesPackage("com.steal.bs.dto");
 		return factoryBean.getObject();
 	}
 	

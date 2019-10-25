@@ -1,9 +1,11 @@
-package com.steal.bs.model;
+package com.steal.bs.Document;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.steal.bs.dto.DocumentDto;
 
 @Service
 public class DocumentBiz {
