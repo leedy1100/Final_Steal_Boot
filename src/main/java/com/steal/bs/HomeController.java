@@ -58,7 +58,6 @@ public class HomeController {
 	@ResponseBody
 	public JSONArray selectEventList(Model model,@RequestParam(value = "start") String start) {
 //		logger.info("Event List from DB.");
-		System.out.println("start:"+start);
 /*
  * 		// list -> json 
  */ 	
@@ -66,7 +65,6 @@ public class HomeController {
 		
   		//JSONArray jsonArray = new JSONArray();
   		List<CalDto> eventList = biz.selectList(start);
-		System.out.println("eventList:"+eventList);
 		model.addAttribute("list", eventList); 
 		
 		// Create ObjectMapper object.
@@ -80,7 +78,6 @@ public class HomeController {
 //			JSONArray jsonList = new JSONArray(json);
 			
 		JSONArray jsonList = JSONArray.fromObject(eventList);
-		System.out.println("jsonList:"+jsonList);
 //		model.addAttribute("jsonList", jsonList);
  /**/
 		return jsonList;
@@ -94,7 +91,6 @@ public class HomeController {
 /*		
  * 		json -> dto
  */
- 		System.out.println("event:"+dto);
 
 
 		int res = biz.insertEvent(dto);
@@ -114,7 +110,6 @@ public class HomeController {
 
 		dto.set_id(id);
 //		System.out.println(dto.get_id());
-		System.out.println("dto:"+dto);
 
 		int res = biz.updateEvent(dto);
 	
@@ -127,7 +122,6 @@ public class HomeController {
 	public int deleteEvent(Model model, @RequestParam(value = "_id") int id) {
 //		logger.info("delete Event List to DB.");
 		
-		System.out.println("eventId:"+id);
 		 int res = biz.deleteEvent(id);
 /*
 		if(res == 0){	// fail
